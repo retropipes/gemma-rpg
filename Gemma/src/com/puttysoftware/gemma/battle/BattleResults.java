@@ -14,6 +14,6 @@ class BattleResults {
     public static final int ENEMY_FLED = 5;
 
     private BattleResults() {
-        // Do nothing
+	// Do nothing
     }
 }

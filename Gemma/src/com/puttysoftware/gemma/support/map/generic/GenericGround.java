@@ -10,7 +10,7 @@ import com.puttysoftware.gemma.support.map.MapConstants;
 public abstract class GenericGround extends MapObject {
     // Constructors
     protected GenericGround() {
-        super(false);
+	super(false);
     }
 
     @Override
@@ -18,21 +18,21 @@ public abstract class GenericGround extends MapObject {
 
     @Override
     public int getLayer() {
-        return MapConstants.LAYER_GROUND;
+	return MapConstants.LAYER_GROUND;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_GROUND);
+	this.type.set(TypeConstants.TYPE_GROUND);
     }
 
     @Override
     public int getCustomProperty(int propID) {
-        return MapObject.DEFAULT_CUSTOM_VALUE;
+	return MapObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(int propID, int value) {
-        // Do nothing
+	// Do nothing
     }
 }

@@ -18,15 +18,13 @@ public class Support {
     // Constants
     private static final String PROGRAM_NAME = "Gemma";
     private static final String ERROR_MESSAGE = "Perhaps a bug is to blame for this error message.\n"
-            + "Include the debug log with your bug report.\n"
-            + "Email bug reports to: support@puttysoftware.com\n"
-            + "Subject: Gemma Bug Report";
+	    + "Include the debug log with your bug report.\n" + "Email bug reports to: support@puttysoftware.com\n"
+	    + "Subject: Gemma Bug Report";
     private static final String SCRIPT_ERROR_MESSAGE = "A problem has occurred while running a script.\n"
-            + "This error is non-fatal, and has been logged.";
+	    + "This error is non-fatal, and has been logged.";
     private static final String ERROR_TITLE = "Gemma Error";
     private static final String NF_ERROR_TITLE = "Gemma Script Error";
-    private static final ErrorLogger elog = new ErrorLogger(
-            Support.PROGRAM_NAME);
+    private static final ErrorLogger elog = new ErrorLogger(Support.PROGRAM_NAME);
     private static final int VERSION_MAJOR = 2;
     private static final int VERSION_MINOR = 0;
     private static final int VERSION_BUGFIX = 0;
@@ -41,96 +39,91 @@ public class Support {
 
     // Methods
     public static ErrorLogger getErrorLogger() {
-        String suffix;
-        if (Support.inDebugMode()) {
-            suffix = " (DEBUG)";
-        } else {
-            suffix = "";
-        }
-        // Display error message
-        CommonDialogs.showErrorDialog(Support.ERROR_MESSAGE,
-                Support.ERROR_TITLE + suffix);
-        return Support.elog;
+	String suffix;
+	if (Support.inDebugMode()) {
+	    suffix = " (DEBUG)";
+	} else {
+	    suffix = "";
+	}
+	// Display error message
+	CommonDialogs.showErrorDialog(Support.ERROR_MESSAGE, Support.ERROR_TITLE + suffix);
+	return Support.elog;
     }
 
     public static ErrorLogger getNonFatalLogger() {
-        String suffix;
-        if (Support.inDebugMode()) {
-            suffix = " (DEBUG)";
-        } else {
-            suffix = "";
-        }
-        // Display error message
-        CommonDialogs.showErrorDialog(Support.SCRIPT_ERROR_MESSAGE,
-                Support.NF_ERROR_TITLE + suffix);
-        return Support.elog;
+	String suffix;
+	if (Support.inDebugMode()) {
+	    suffix = " (DEBUG)";
+	} else {
+	    suffix = "";
+	}
+	// Display error message
+	CommonDialogs.showErrorDialog(Support.SCRIPT_ERROR_MESSAGE, Support.NF_ERROR_TITLE + suffix);
+	return Support.elog;
     }
 
     public static boolean inDebugMode() {
-        return Support.debugMode;
+	return Support.debugMode;
     }
 
     public static Scenario getScenario() {
-        return Support.scen;
+	return Support.scen;
     }
 
     public static void deleteScenario() {
-        File scenFile = new File(Support.scen.getBasePath());
-        if (scenFile.isDirectory() && scenFile.exists()) {
-            try {
-                DirectoryUtilities.removeDirectory(scenFile);
-            } catch (Throwable t) {
-                // Ignore
-            }
-        }
+	File scenFile = new File(Support.scen.getBasePath());
+	if (scenFile.isDirectory() && scenFile.exists()) {
+	    try {
+		DirectoryUtilities.removeDirectory(scenFile);
+	    } catch (Throwable t) {
+		// Ignore
+	    }
+	}
     }
 
     public static void createScenario() {
-        Support.scen = new Scenario();
+	Support.scen = new Scenario();
     }
 
     public static int getBattleMapSize() {
-        return Support.BATTLE_MAP_SIZE;
+	return Support.BATTLE_MAP_SIZE;
     }
 
     public static int getBattleMapFloorSize() {
-        return Support.BATTLE_MAP_FLOOR_SIZE;
+	return Support.BATTLE_MAP_FLOOR_SIZE;
     }
 
     public static int getGameMapSize() {
-        return Support.GAME_MAP_SIZE;
+	return Support.GAME_MAP_SIZE;
     }
 
     public static int getGameMapFloorSize() {
-        return Support.GAME_MAP_FLOOR_SIZE;
+	return Support.GAME_MAP_FLOOR_SIZE;
     }
 
     public static void preInit() {
-        // Compute action cap
-        Creature.computeActionCap(Support.BATTLE_MAP_SIZE,
-                Support.BATTLE_MAP_SIZE);
+	// Compute action cap
+	Creature.computeActionCap(Support.BATTLE_MAP_SIZE, Support.BATTLE_MAP_SIZE);
     }
 
     public static String getVersionString() {
-        if (Support.isBetaModeEnabled()) {
-            int code = Support.VERSION_CODE;
-            String rt;
-            if (code == ProductData.CODE_BETA) {
-                rt = "-beta";
-            } else {
-                rt = "";
-            }
-            return "" + Support.VERSION_MAJOR + "." + Support.VERSION_MINOR
-                    + "." + Support.VERSION_BUGFIX + rt
-                    + Support.VERSION_PRERELEASE;
-        } else {
-            return "" + Support.VERSION_MAJOR + "." + Support.VERSION_MINOR
-                    + "." + Support.VERSION_BUGFIX;
-        }
+	if (Support.isBetaModeEnabled()) {
+	    int code = Support.VERSION_CODE;
+	    String rt;
+	    if (code == ProductData.CODE_BETA) {
+		rt = "-beta";
+	    } else {
+		rt = "";
+	    }
+	    return "" + Support.VERSION_MAJOR + "." + Support.VERSION_MINOR + "." + Support.VERSION_BUGFIX + rt
+		    + Support.VERSION_PRERELEASE;
+	} else {
+	    return "" + Support.VERSION_MAJOR + "." + Support.VERSION_MINOR + "." + Support.VERSION_BUGFIX;
+	}
     }
 
     private static boolean isBetaModeEnabled() {
-        int code = Support.VERSION_CODE;
-        return code != ProductData.CODE_STABLE;
+	int code = Support.VERSION_CODE;
+	return code != ProductData.CODE_STABLE;
     }
 }

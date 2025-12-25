@@ -7,38 +7,34 @@ import com.puttysoftware.gemma.support.creatures.PartyMember;
 
 public final class InventoryViewer {
     private InventoryViewer() {
-        // Do nothing
+	// Do nothing
     }
 
     public static void showEquipmentDialog() {
-        String title;
-        if (Support.inDebugMode()) {
-            title = "Equipment (DEBUG)";
-        } else {
-            title = "Equipment";
-        }
-        PartyMember member = PartyManager.getParty().getLeader();
-        if (member != null) {
-            String[] equipString = member.getItems()
-                    .generateEquipmentStringArray();
-            CommonDialogs.showInputDialog("Equipment", title, equipString,
-                    equipString[0]);
-        }
+	String title;
+	if (Support.inDebugMode()) {
+	    title = "Equipment (DEBUG)";
+	} else {
+	    title = "Equipment";
+	}
+	PartyMember member = PartyManager.getParty().getLeader();
+	if (member != null) {
+	    String[] equipString = member.getItems().generateEquipmentStringArray();
+	    CommonDialogs.showInputDialog("Equipment", title, equipString, equipString[0]);
+	}
     }
 
     public static void showInventoryDialog() {
-        String title;
-        if (Support.inDebugMode()) {
-            title = "Items (DEBUG)";
-        } else {
-            title = "Items";
-        }
-        PartyMember member = PartyManager.getParty().getLeader();
-        if (member != null) {
-            String[] invString = member.getItems()
-                    .generateInventoryStringArray();
-            CommonDialogs.showInputDialog("Items", title, invString,
-                    invString[0]);
-        }
+	String title;
+	if (Support.inDebugMode()) {
+	    title = "Items (DEBUG)";
+	} else {
+	    title = "Items";
+	}
+	PartyMember member = PartyManager.getParty().getLeader();
+	if (member != null) {
+	    String[] invString = member.getItems().generateInventoryStringArray();
+	    CommonDialogs.showInputDialog("Items", title, invString, invString[0]);
+	}
     }
 }

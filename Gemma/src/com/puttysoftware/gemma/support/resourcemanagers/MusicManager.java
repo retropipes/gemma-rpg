@@ -16,40 +16,38 @@ public class MusicManager {
     private static OggFactory CURRENT_MUSIC;
 
     private static OggFactory getMusic(final String filename) {
-        return OggFactory.loadResource(MusicManager.LOAD_CLASS
-                .getResource(MusicManager.INTERNAL_LOAD_PATH + filename));
+	return OggFactory.loadResource(MusicManager.LOAD_CLASS.getResource(MusicManager.INTERNAL_LOAD_PATH + filename));
     }
 
     public static void playMusic(final int musicID, final int offset) {
-        MusicManager.CURRENT_MUSIC = MusicManager
-                .getMusic(MusicConstants.getMusicNameForID(musicID, offset));
-        if (MusicManager.CURRENT_MUSIC != null) {
-            // Play the music
-            MusicManager.CURRENT_MUSIC.start();
-        }
+	MusicManager.CURRENT_MUSIC = MusicManager.getMusic(MusicConstants.getMusicNameForID(musicID, offset));
+	if (MusicManager.CURRENT_MUSIC != null) {
+	    // Play the music
+	    MusicManager.CURRENT_MUSIC.start();
+	}
     }
 
     public static void stopMusic() {
-        if (MusicManager.CURRENT_MUSIC != null) {
-            // Stop the music
-            try {
-                MusicManager.CURRENT_MUSIC.stopLoop();
-            } catch (BufferUnderflowException bue) {
-                // Ignore
-            } catch (NullPointerException np) {
-                // Ignore
-            } catch (Throwable t) {
-                Support.getErrorLogger().logError(t);
-            }
-        }
+	if (MusicManager.CURRENT_MUSIC != null) {
+	    // Stop the music
+	    try {
+		MusicManager.CURRENT_MUSIC.stopLoop();
+	    } catch (BufferUnderflowException bue) {
+		// Ignore
+	    } catch (NullPointerException np) {
+		// Ignore
+	    } catch (Throwable t) {
+		Support.getErrorLogger().logError(t);
+	    }
+	}
     }
 
     public static boolean isMusicPlaying() {
-        if (MusicManager.CURRENT_MUSIC != null) {
-            if (MusicManager.CURRENT_MUSIC.isPlaying()) {
-                return true;
-            }
-        }
-        return false;
+	if (MusicManager.CURRENT_MUSIC != null) {
+	    if (MusicManager.CURRENT_MUSIC.isPlaying()) {
+		return true;
+	    }
+	}
+	return false;
     }
 }

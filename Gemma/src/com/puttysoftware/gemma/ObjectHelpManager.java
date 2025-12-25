@@ -28,60 +28,56 @@ class ObjectHelpManager {
 
     // Constructors
     public ObjectHelpManager() {
-        this.inited = false;
+	this.inited = false;
     }
 
     // Methods
     void showHelp() {
-        this.initHelp();
-        this.helpFrame.setVisible(true);
+	this.initHelp();
+	this.helpFrame.setVisible(true);
     }
 
     private void initHelp() {
-        if (!this.inited) {
-            String title;
-            if (Support.inDebugMode()) {
-                title = "Gemma Help (DEBUG)";
-            } else {
-                title = "Gemma Help";
-            }
-            ButtonHandler buttonHandler = new ButtonHandler();
-            MapObjectList objectList = Gemma.getApplication().getObjects();
-            String[] objectNames = objectList.getAllDescriptions();
-            BufferedImageIcon[] objectAppearances = objectList
-                    .getAllObjectHelpImages();
-            this.hv = new GraphicalHelpViewer(objectAppearances, objectNames,
-                    ImageTransformer.getReplacementColor());
-            JButton export = new JButton("Export");
-            export.addActionListener(buttonHandler);
-            this.helpFrame = new JFrame(title);
-            this.helpFrame
-                    .setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-            this.helpFrame.setLayout(new BorderLayout());
-            this.helpFrame.add(this.hv.getHelp(), BorderLayout.CENTER);
-            this.helpFrame.add(export, BorderLayout.SOUTH);
-            this.hv.setHelpSize(GraphicsConstants.MAX_WINDOW_WIDTH,
-                    GraphicsConstants.MAX_WINDOW_HEIGHT);
-            this.helpFrame.pack();
-            this.helpFrame.setResizable(false);
-            // Mac OS X-specific fixes
-            if (System.getProperty("os.name").startsWith("Mac OS X")) {
-                MenuManager menu = new MenuManager();
-                menu.setHelpMenus();
-                this.helpFrame.setJMenuBar(menu.getMainMenuBar());
-            }
-            this.inited = true;
-        }
+	if (!this.inited) {
+	    String title;
+	    if (Support.inDebugMode()) {
+		title = "Gemma Help (DEBUG)";
+	    } else {
+		title = "Gemma Help";
+	    }
+	    ButtonHandler buttonHandler = new ButtonHandler();
+	    MapObjectList objectList = Gemma.getApplication().getObjects();
+	    String[] objectNames = objectList.getAllDescriptions();
+	    BufferedImageIcon[] objectAppearances = objectList.getAllObjectHelpImages();
+	    this.hv = new GraphicalHelpViewer(objectAppearances, objectNames, ImageTransformer.getReplacementColor());
+	    JButton export = new JButton("Export");
+	    export.addActionListener(buttonHandler);
+	    this.helpFrame = new JFrame(title);
+	    this.helpFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+	    this.helpFrame.setLayout(new BorderLayout());
+	    this.helpFrame.add(this.hv.getHelp(), BorderLayout.CENTER);
+	    this.helpFrame.add(export, BorderLayout.SOUTH);
+	    this.hv.setHelpSize(GraphicsConstants.MAX_WINDOW_WIDTH, GraphicsConstants.MAX_WINDOW_HEIGHT);
+	    this.helpFrame.pack();
+	    this.helpFrame.setResizable(false);
+	    // Mac OS X-specific fixes
+	    if (System.getProperty("os.name").startsWith("Mac OS X")) {
+		MenuManager menu = new MenuManager();
+		menu.setHelpMenus();
+		this.helpFrame.setJMenuBar(menu.getMainMenuBar());
+	    }
+	    this.inited = true;
+	}
     }
 
     private class ButtonHandler implements ActionListener {
-        public ButtonHandler() {
-            // Do nothing
-        }
+	public ButtonHandler() {
+	    // Do nothing
+	}
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ObjectHelpManager.this.hv.exportHelp();
-        }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+	    ObjectHelpManager.this.hv.exportHelp();
+	}
     }
 }

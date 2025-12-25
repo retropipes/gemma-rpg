@@ -8,11 +8,11 @@ package com.puttysoftware.gemma.support.ai;
 public final class RandomAIRoutinePicker {
     // Constructors
     private RandomAIRoutinePicker() {
-        // Do nothing
+	// Do nothing
     }
 
     // Methods
     public static AIRoutine getNextRoutine() {
-        return new SeekerAI();
+	return new SeekerAI();
     }
 }

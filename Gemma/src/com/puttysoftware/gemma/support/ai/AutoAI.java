@@ -10,19 +10,19 @@ import java.awt.Point;
 public class AutoAI extends AIRoutine {
     // Constructor
     public AutoAI() {
-        super();
+	super();
     }
 
     @Override
     public int getNextAction(AIContext ac) {
-        Point there = ac.isEnemyNearby();
-        if (there != null) {
-            // Something hostile is nearby, so attack it
-            this.moveX = there.x;
-            this.moveY = there.y;
-            return AIRoutine.ACTION_MOVE;
-        } else {
-            return AIRoutine.ACTION_END_TURN;
-        }
+	Point there = ac.isEnemyNearby();
+	if (there != null) {
+	    // Something hostile is nearby, so attack it
+	    this.moveX = there.x;
+	    this.moveY = there.y;
+	    return AIRoutine.ACTION_MOVE;
+	} else {
+	    return AIRoutine.ACTION_END_TURN;
+	}
     }
 }

@@ -6,5 +6,7 @@
 package com.puttysoftware.gemma.support.creatures;
 
 public enum BattleTarget {
-    SELF, ONE_ALLY, ONE_ENEMY;
+    SELF,
+    ONE_ALLY,
+    ONE_ENEMY;
 }

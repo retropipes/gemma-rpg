@@ -13,7 +13,6 @@ public interface ShopTypes {
     public static final int SHOP_TYPE_ITEMS = 6;
     public static final int SHOP_TYPE_ENHANCEMENTS = 8;
     public static final int SHOP_TYPE_FAITH_POWERS = 9;
-    public static final String[] SHOP_NAMES = { "Weapons", "Armor", "Healer",
-            "Regenerator", "Spells", "Items", "Socks", "Enhancements",
-            "Faith Powers" };
+    public static final String[] SHOP_NAMES = { "Weapons", "Armor", "Healer", "Regenerator", "Spells", "Items", "Socks",
+	    "Enhancements", "Faith Powers" };
 }

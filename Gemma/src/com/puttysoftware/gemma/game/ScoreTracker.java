@@ -13,20 +13,19 @@ class ScoreTracker {
 
     // Constructors
     ScoreTracker() {
-        this.score = 0L;
+	this.score = 0L;
     }
 
     // Methods
     void commitScore() {
-        CommonDialogs.showDialog("Your final score: " + this.score + " points");
+	CommonDialogs.showDialog("Your final score: " + this.score + " points");
     }
 
     void addToScore(long value) {
-        this.score += value;
+	this.score += value;
     }
 
     void showCurrentScore() {
-        CommonDialogs
-                .showDialog("Your current score: " + this.score + " points");
+	CommonDialogs.showDialog("Your current score: " + this.score + " points");
     }
 }

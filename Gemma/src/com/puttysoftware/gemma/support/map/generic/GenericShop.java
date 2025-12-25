@@ -17,62 +17,61 @@ public abstract class GenericShop extends MapObject {
 
     // Constructors
     public GenericShop(int newShopType) {
-        super(false);
-        this.setTemplateTransform(new TemplateTransform(1.0, 0.75, 0.5));
-        // Create post-move script
-        this.postMove = new InternalScript();
-        InternalScriptEntry act0post = new InternalScriptEntry();
-        act0post.setActionCode(InternalScriptActionCode.SHOP);
-        act0post.addActionArg(new InternalScriptEntryArgument(newShopType));
-        act0post.finalizeActionArgs();
-        this.postMove.addAction(act0post);
-        this.postMove.finalizeActions();
+	super(false);
+	this.setTemplateTransform(new TemplateTransform(1.0, 0.75, 0.5));
+	// Create post-move script
+	this.postMove = new InternalScript();
+	InternalScriptEntry act0post = new InternalScriptEntry();
+	act0post.setActionCode(InternalScriptActionCode.SHOP);
+	act0post.addActionArg(new InternalScriptEntryArgument(newShopType));
+	act0post.finalizeActionArgs();
+	this.postMove.addAction(act0post);
+	this.postMove.finalizeActions();
     }
 
     // Methods
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_SHOP);
+	this.type.set(TypeConstants.TYPE_SHOP);
     }
 
     @Override
-    public InternalScript getPostMoveScript(final boolean ie, final int dirX,
-            final int dirY, final int dirZ) {
-        return this.postMove;
+    public InternalScript getPostMoveScript(final boolean ie, final int dirX, final int dirY, final int dirZ) {
+	return this.postMove;
     }
 
     @Override
     public int getLayer() {
-        return MapConstants.LAYER_OBJECT;
+	return MapConstants.LAYER_OBJECT;
     }
 
     @Override
     public int getCustomProperty(int propID) {
-        return MapObject.DEFAULT_CUSTOM_VALUE;
+	return MapObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(int propID, int value) {
-        // Do nothing
+	// Do nothing
     }
 
     @Override
     public boolean enabledInBattle() {
-        return false;
+	return false;
     }
 
     @Override
     public String getName() {
-        return null;
+	return null;
     }
 
     @Override
     public String getPluralName() {
-        return null;
+	return null;
     }
 
     @Override
     public String getDescription() {
-        return null;
+	return null;
     }
 }

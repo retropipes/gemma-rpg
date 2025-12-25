@@ -11,21 +11,21 @@ import com.puttysoftware.gemma.support.map.generic.GenericShop;
 public class HealShop extends GenericShop {
     // Constructors
     public HealShop() {
-        super(ShopTypes.SHOP_TYPE_HEALER);
+	super(ShopTypes.SHOP_TYPE_HEALER);
     }
 
     @Override
     public String getName() {
-        return "Heal Shop";
+	return "Heal Shop";
     }
 
     @Override
     public String getPluralName() {
-        return "Heal Shops";
+	return "Heal Shops";
     }
 
     @Override
     public String getDescription() {
-        return "Heal Shops restore health, for a fee.";
+	return "Heal Shops restore health, for a fee.";
     }
 }

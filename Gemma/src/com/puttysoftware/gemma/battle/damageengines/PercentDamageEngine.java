@@ -28,136 +28,128 @@ class PercentDamageEngine extends DamageEngine {
 
     @Override
     public int computeDamage(Creature enemy, Creature acting) {
-        // Compute Damage
-        double attack = acting.getEffectedAttack();
-        double defense = enemy.getEffectedStat(StatConstants.STAT_DEFENSE);
-        double absorb = (PercentDamageEngine.ABSORB - enemy.getArmorBlock())
-                / PercentDamageEngine.ABSORB;
-        this.didPierce();
-        double rawDamage;
-        if (this.pierce) {
-            rawDamage = Math.max(1.0, attack);
-        } else {
-            rawDamage = Math.max(1.0, (attack - defense) * absorb);
-        }
-        int rHit = new RandomRange(0, 10000).generate();
-        int aHit = acting.getHit();
-        if (rHit > aHit) {
-            // Weapon missed
-            this.missed = true;
-            this.dodged = false;
-            this.crit = false;
-            return 0;
-        } else {
-            int rEvade = new RandomRange(0, 10000).generate();
-            int aEvade = enemy.getEvade();
-            if (rEvade < aEvade) {
-                // Enemy dodged
-                this.missed = false;
-                this.dodged = true;
-                this.crit = false;
-                return 0;
-            } else {
-                // Hit
-                this.missed = false;
-                this.dodged = false;
-                RandomRange rDamage;
-                this.didCrit();
-                if (this.crit) {
-                    rDamage = new RandomRange(
-                            PercentDamageEngine.MULTIPLIER_MAX,
-                            PercentDamageEngine.MULTIPLIER_MAX_CRIT);
-                } else {
-                    rDamage = new RandomRange(
-                            PercentDamageEngine.MULTIPLIER_MIN,
-                            PercentDamageEngine.MULTIPLIER_MAX);
-                }
-                int multiplier = rDamage.generate();
-                // Weapon Faith Power Boost
-                double faithMultiplier = 1.0;
-                double faithIncrement = 0.01;
-                double faithIncrement2H = 0.03;
-                int fc = FaithConstants.getFaithsCount();
-                Equipment mainHand = acting.getItems().getEquipmentInSlot(
-                        EquipmentSlotConstants.SLOT_MAINHAND);
-                Equipment offHand = acting.getItems().getEquipmentInSlot(
-                        EquipmentSlotConstants.SLOT_OFFHAND);
-                if (mainHand != null && mainHand.equals(offHand)) {
-                    for (int z = 0; z < fc; z++) {
-                        int fpl = mainHand.getFaithPowerLevel(z);
-                        faithMultiplier += faithIncrement2H * fpl;
-                    }
-                } else {
-                    if (mainHand != null) {
-                        for (int z = 0; z < fc; z++) {
-                            int fpl = mainHand.getFaithPowerLevel(z);
-                            faithMultiplier += faithIncrement * fpl;
-                        }
-                    }
-                    if (offHand != null && offHand
-                            .getEquipCategory() != EquipmentCategoryConstants.EQUIPMENT_CATEGORY_ARMOR) {
-                        for (int z = 0; z < fc; z++) {
-                            int fpl = offHand.getFaithPowerLevel(z);
-                            faithMultiplier += faithIncrement * fpl;
-                        }
-                    }
-                }
-                // Armor Faith Power Boost
-                double faithDR = 0;
-                double faithDRInc = 1.0;
-                if (offHand != null && offHand
-                        .getEquipCategory() == EquipmentCategoryConstants.EQUIPMENT_CATEGORY_ARMOR) {
-                    for (int z = 0; z < fc; z++) {
-                        int fpl = offHand.getFaithPowerLevel(z);
-                        faithDR += faithDRInc * fpl;
-                    }
-                }
-                int unadjustedDamage = (int) ((rawDamage * multiplier
-                        * faithMultiplier)
-                        / PercentDamageEngine.MULTIPLIER_DIVIDE);
-                return Math.max(1,
-                        unadjustedDamage - ((int) Math.ceil(faithDR)));
-            }
-        }
+	// Compute Damage
+	double attack = acting.getEffectedAttack();
+	double defense = enemy.getEffectedStat(StatConstants.STAT_DEFENSE);
+	double absorb = (PercentDamageEngine.ABSORB - enemy.getArmorBlock()) / PercentDamageEngine.ABSORB;
+	this.didPierce();
+	double rawDamage;
+	if (this.pierce) {
+	    rawDamage = Math.max(1.0, attack);
+	} else {
+	    rawDamage = Math.max(1.0, (attack - defense) * absorb);
+	}
+	int rHit = new RandomRange(0, 10000).generate();
+	int aHit = acting.getHit();
+	if (rHit > aHit) {
+	    // Weapon missed
+	    this.missed = true;
+	    this.dodged = false;
+	    this.crit = false;
+	    return 0;
+	} else {
+	    int rEvade = new RandomRange(0, 10000).generate();
+	    int aEvade = enemy.getEvade();
+	    if (rEvade < aEvade) {
+		// Enemy dodged
+		this.missed = false;
+		this.dodged = true;
+		this.crit = false;
+		return 0;
+	    } else {
+		// Hit
+		this.missed = false;
+		this.dodged = false;
+		RandomRange rDamage;
+		this.didCrit();
+		if (this.crit) {
+		    rDamage = new RandomRange(PercentDamageEngine.MULTIPLIER_MAX,
+			    PercentDamageEngine.MULTIPLIER_MAX_CRIT);
+		} else {
+		    rDamage = new RandomRange(PercentDamageEngine.MULTIPLIER_MIN, PercentDamageEngine.MULTIPLIER_MAX);
+		}
+		int multiplier = rDamage.generate();
+		// Weapon Faith Power Boost
+		double faithMultiplier = 1.0;
+		double faithIncrement = 0.01;
+		double faithIncrement2H = 0.03;
+		int fc = FaithConstants.getFaithsCount();
+		Equipment mainHand = acting.getItems().getEquipmentInSlot(EquipmentSlotConstants.SLOT_MAINHAND);
+		Equipment offHand = acting.getItems().getEquipmentInSlot(EquipmentSlotConstants.SLOT_OFFHAND);
+		if (mainHand != null && mainHand.equals(offHand)) {
+		    for (int z = 0; z < fc; z++) {
+			int fpl = mainHand.getFaithPowerLevel(z);
+			faithMultiplier += faithIncrement2H * fpl;
+		    }
+		} else {
+		    if (mainHand != null) {
+			for (int z = 0; z < fc; z++) {
+			    int fpl = mainHand.getFaithPowerLevel(z);
+			    faithMultiplier += faithIncrement * fpl;
+			}
+		    }
+		    if (offHand != null
+			    && offHand.getEquipCategory() != EquipmentCategoryConstants.EQUIPMENT_CATEGORY_ARMOR) {
+			for (int z = 0; z < fc; z++) {
+			    int fpl = offHand.getFaithPowerLevel(z);
+			    faithMultiplier += faithIncrement * fpl;
+			}
+		    }
+		}
+		// Armor Faith Power Boost
+		double faithDR = 0;
+		double faithDRInc = 1.0;
+		if (offHand != null
+			&& offHand.getEquipCategory() == EquipmentCategoryConstants.EQUIPMENT_CATEGORY_ARMOR) {
+		    for (int z = 0; z < fc; z++) {
+			int fpl = offHand.getFaithPowerLevel(z);
+			faithDR += faithDRInc * fpl;
+		    }
+		}
+		int unadjustedDamage = (int) ((rawDamage * multiplier * faithMultiplier)
+			/ PercentDamageEngine.MULTIPLIER_DIVIDE);
+		return Math.max(1, unadjustedDamage - ((int) Math.ceil(faithDR)));
+	    }
+	}
     }
 
     @Override
     public boolean enemyDodged() {
-        return this.dodged;
+	return this.dodged;
     }
 
     @Override
     public boolean weaponMissed() {
-        return this.missed;
+	return this.missed;
     }
 
     @Override
     public boolean weaponCrit() {
-        return this.crit;
+	return this.crit;
     }
 
     @Override
     public boolean weaponPierce() {
-        return this.pierce;
+	return this.pierce;
     }
 
     private void didPierce() {
-        int rPierce = new RandomRange(0, 10000).generate();
-        int aPierce = PIERCE_CHANCE;
-        if (rPierce < aPierce) {
-            this.pierce = true;
-        } else {
-            this.pierce = false;
-        }
+	int rPierce = new RandomRange(0, 10000).generate();
+	int aPierce = PIERCE_CHANCE;
+	if (rPierce < aPierce) {
+	    this.pierce = true;
+	} else {
+	    this.pierce = false;
+	}
     }
 
     private void didCrit() {
-        int rCrit = new RandomRange(0, 10000).generate();
-        int aCrit = CRIT_CHANCE;
-        if (rCrit < aCrit) {
-            this.crit = true;
-        } else {
-            this.crit = false;
-        }
+	int rCrit = new RandomRange(0, 10000).generate();
+	int aCrit = CRIT_CHANCE;
+	if (rCrit < aCrit) {
+	    this.crit = true;
+	} else {
+	    this.crit = false;
+	}
     }
 }

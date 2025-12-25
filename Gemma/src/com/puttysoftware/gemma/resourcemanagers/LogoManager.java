@@ -20,30 +20,28 @@ public class LogoManager {
     private final static Class<?> LOAD_CLASS = LogoManager.class;
 
     static BufferedImageIcon getUncachedLogo(String name) {
-        try {
-            final URL url = LogoManager.LOAD_CLASS
-                    .getResource(LogoManager.LOAD_PATH + name + ".png");
-            final BufferedImage image = ImageIO.read(url);
-            return new BufferedImageIcon(image);
-        } catch (final IOException | NullPointerException
-                | IllegalArgumentException ie) {
-            return null;
-        }
+	try {
+	    final URL url = LogoManager.LOAD_CLASS.getResource(LogoManager.LOAD_PATH + name + ".png");
+	    final BufferedImage image = ImageIO.read(url);
+	    return new BufferedImageIcon(image);
+	} catch (final IOException | NullPointerException | IllegalArgumentException ie) {
+	    return null;
+	}
     }
 
     public static BufferedImageIcon getLogo() {
-        return LogoCache.getCachedLogo("logo");
+	return LogoCache.getCachedLogo("logo");
     }
 
     public static BufferedImageIcon getMiniatureLogo() {
-        return LogoCache.getCachedLogo("minilogo");
+	return LogoCache.getCachedLogo("minilogo");
     }
 
     public static BufferedImageIcon getMicroLogo() {
-        return LogoCache.getCachedLogo("micrologo");
+	return LogoCache.getCachedLogo("micrologo");
     }
 
     public static Image getIconLogo() {
-        return LogoCache.getCachedLogo("iconlogo");
+	return LogoCache.getCachedLogo("iconlogo");
     }
 }

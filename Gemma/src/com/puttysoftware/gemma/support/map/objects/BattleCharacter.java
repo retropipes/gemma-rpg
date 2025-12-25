@@ -12,6 +12,6 @@ import com.puttysoftware.gemma.support.map.generic.GenericBattleCharacter;
 public class BattleCharacter extends GenericBattleCharacter {
     // Constructors
     public BattleCharacter(Creature newTemplate) {
-        super(newTemplate);
+	super(newTemplate);
     }
 }

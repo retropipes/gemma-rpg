@@ -16,32 +16,32 @@ class LocalPreferencesStoreManager {
 
     // Constructors
     LocalPreferencesStoreManager() {
-        this.store = new Properties();
+	this.store = new Properties();
     }
 
     // Methods
     private String getString(String key, String defaultValue) {
-        return this.store.getProperty(key, defaultValue);
+	return this.store.getProperty(key, defaultValue);
     }
 
     private void setString(String key, String newValue) {
-        this.store.setProperty(key, newValue);
+	this.store.setProperty(key, newValue);
     }
 
     public boolean getBoolean(String key, boolean defaultValue) {
-        String strVal = this.getString(key, Boolean.toString(defaultValue));
-        return Boolean.parseBoolean(strVal);
+	String strVal = this.getString(key, Boolean.toString(defaultValue));
+	return Boolean.parseBoolean(strVal);
     }
 
     public void setBoolean(String key, boolean newValue) {
-        this.setString(key, Boolean.toString(newValue));
+	this.setString(key, Boolean.toString(newValue));
     }
 
     public void loadStore(InputStream source) throws IOException {
-        this.store.loadFromXML(source);
+	this.store.loadFromXML(source);
     }
 
     public void saveStore(OutputStream dest) throws IOException {
-        this.store.storeToXML(dest, null);
+	this.store.storeToXML(dest, null);
     }
 }

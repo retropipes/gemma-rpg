@@ -8,6 +8,6 @@ package com.puttysoftware.gemma.support.creatures.monsters;
 class BothRandomScalingStaticMonster extends BothRandomScalingBaseMonster {
     // Constructors
     BothRandomScalingStaticMonster() {
-        super();
+	super();
     }
 }

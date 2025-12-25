@@ -10,22 +10,21 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 
 public class SkyButton extends GenericButton {
     public SkyButton() {
-        super(new SkyWallOff(), new SkyWallOn(),
-                new TemplateTransform(0.5, 0.5, 1.0));
+	super(new SkyWallOff(), new SkyWallOn(), new TemplateTransform(0.5, 0.5, 1.0));
     }
 
     @Override
     public String getName() {
-        return "Sky Button";
+	return "Sky Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Sky Buttons";
+	return "Sky Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Sky Buttons will cause all Sky Walls Off to become On, and all Sky Walls On to become Off.";
+	return "Sky Buttons will cause all Sky Walls Off to become On, and all Sky Walls On to become Off.";
     }
 }

@@ -11,22 +11,22 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class WhiteWallOff extends GenericToggleWall {
     // Constructors
     public WhiteWallOff() {
-        super(false, new TemplateTransform(1.0, 1.0, 1.0));
+	super(false, new TemplateTransform(1.0, 1.0, 1.0));
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "White Wall Off";
+	return "White Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "White Walls Off";
+	return "White Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "White Walls Off can be walked through, and will change to White Walls On when a White Button is pressed.";
+	return "White Walls Off can be walked through, and will change to White Walls On when a White Button is pressed.";
     }
 }

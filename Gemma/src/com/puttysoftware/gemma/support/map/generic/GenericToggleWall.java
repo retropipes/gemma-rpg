@@ -13,9 +13,9 @@ public abstract class GenericToggleWall extends MapObject {
 
     // Constructors
     protected GenericToggleWall(boolean solidState, TemplateTransform tt) {
-        super(solidState);
-        this.state = solidState;
-        this.setTemplateTransform(tt);
+	super(solidState);
+	this.state = solidState;
+	this.setTemplateTransform(tt);
     }
 
     @Override
@@ -23,44 +23,44 @@ public abstract class GenericToggleWall extends MapObject {
 
     @Override
     public int getLayer() {
-        return MapConstants.LAYER_OBJECT;
+	return MapConstants.LAYER_OBJECT;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_TOGGLE_WALL);
+	this.type.set(TypeConstants.TYPE_TOGGLE_WALL);
     }
 
     @Override
     public int getCustomProperty(int propID) {
-        return MapObject.DEFAULT_CUSTOM_VALUE;
+	return MapObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(int propID, int value) {
-        // Do nothing
+	// Do nothing
     }
 
     @Override
     public String getGameImageNameHook() {
-        if (this.state) {
-            return "wall";
-        } else {
-            return "off wall";
-        }
+	if (this.state) {
+	    return "wall";
+	} else {
+	    return "off wall";
+	}
     }
 
     @Override
     public String getEditorImageNameHook() {
-        if (this.state) {
-            return "wall";
-        } else {
-            return "off wall";
-        }
+	if (this.state) {
+	    return "wall";
+	} else {
+	    return "off wall";
+	}
     }
 
     @Override
     public boolean enabledInBattle() {
-        return false;
+	return false;
     }
 }

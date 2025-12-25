@@ -15,19 +15,18 @@ public class Scenario {
 
     // Constructors
     public Scenario() {
-        long random = new RandomRange(0, Integer.MAX_VALUE - 1).generate();
-        String randomID = Long.toHexString(random);
-        this.basePath = System.getProperty("java.io.tmpdir") + "Gemma"
-                + File.separator + randomID
-                + Extension.getScenarioExtensionWithPeriod();
-        File base = new File(this.basePath);
-        if (!base.exists()) {
-            base.mkdirs();
-        }
+	long random = new RandomRange(0, Integer.MAX_VALUE - 1).generate();
+	String randomID = Long.toHexString(random);
+	this.basePath = System.getProperty("java.io.tmpdir") + "Gemma" + File.separator + randomID
+		+ Extension.getScenarioExtensionWithPeriod();
+	File base = new File(this.basePath);
+	if (!base.exists()) {
+	    base.mkdirs();
+	}
     }
 
     // Methods
     public String getBasePath() {
-        return this.basePath;
+	return this.basePath;
     }
 }

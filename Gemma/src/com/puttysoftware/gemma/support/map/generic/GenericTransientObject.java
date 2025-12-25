@@ -16,49 +16,49 @@ public abstract class GenericTransientObject extends MapObject {
 
     // Constructors
     protected GenericTransientObject(String newBaseName, Color arrowColor) {
-        super(true);
-        this.baseName = newBaseName;
-        this.name = newBaseName;
-        this.setTemplateTransform(new TemplateTransform(arrowColor));
+	super(true);
+	this.baseName = newBaseName;
+	this.name = newBaseName;
+	this.setTemplateTransform(new TemplateTransform(arrowColor));
     }
 
     // Methods
     @Override
     public final String getName() {
-        return this.name;
+	return this.name;
     }
 
     @Override
     public String getPluralName() {
-        return this.name + "s";
+	return this.name + "s";
     }
 
     @Override
     public String getDescription() {
-        return null;
+	return null;
     }
 
     public final void setNameSuffix(String suffix) {
-        this.name = this.baseName + " " + suffix;
+	this.name = this.baseName + " " + suffix;
     }
 
     @Override
     public int getLayer() {
-        return MapConstants.LAYER_OBJECT;
+	return MapConstants.LAYER_OBJECT;
     }
 
     @Override
     protected final void setTypes() {
-        // Do nothing
+	// Do nothing
     }
 
     @Override
     public int getCustomProperty(int propID) {
-        return MapObject.DEFAULT_CUSTOM_VALUE;
+	return MapObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(int propID, int value) {
-        // Do nothing
+	// Do nothing
     }
 }

@@ -19,31 +19,31 @@ class BattleEffects {
 
     // Constructors
     BattleEffects() {
-        this.setUpGUI();
+	this.setUpGUI();
     }
 
     // Methods
     Container getEffectsPane() {
-        if (this.effectsPane == null) {
-            this.effectsPane = new Container();
-        }
-        return this.effectsPane;
+	if (this.effectsPane == null) {
+	    this.effectsPane = new Container();
+	}
+	return this.effectsPane;
     }
 
     void updateEffects(BattleCharacter bc) {
-        if (bc != null) {
-            int count = bc.getTemplate().getActiveEffectCount();
-            String[] es = bc.getTemplate().getCompleteEffectString();
-            for (int x = 0; x < count; x++) {
-                this.effectLabel.setText(es[x]);
-            }
-        }
+	if (bc != null) {
+	    int count = bc.getTemplate().getActiveEffectCount();
+	    String[] es = bc.getTemplate().getCompleteEffectString();
+	    for (int x = 0; x < count; x++) {
+		this.effectLabel.setText(es[x]);
+	    }
+	}
     }
 
     private void setUpGUI() {
-        this.effectsPane = this.getEffectsPane();
-        this.effectsPane.removeAll();
-        this.effectsPane.setLayout(new GridLayout(1, 1));
-        this.effectLabel = new JLabel(" ");
+	this.effectsPane = this.getEffectsPane();
+	this.effectsPane.removeAll();
+	this.effectsPane.setLayout(new GridLayout(1, 1));
+	this.effectLabel = new JLabel(" ");
     }
 }

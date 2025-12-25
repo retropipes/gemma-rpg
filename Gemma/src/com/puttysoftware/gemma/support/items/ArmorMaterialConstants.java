@@ -10,9 +10,7 @@ class ArmorMaterialConstants {
     static final int MATERIALS_COUNT = 26;
     static final int MATERIALS_POWER_MULTIPLIER = 1;
     // Names
-    static final String[] MATERIAL_COMMON_NAMES = { "Uranium", "Leather", "Fur",
-            "Silk", "Shell", "Scale", "Copper", "Bronze", "Iron", "Steel",
-            "Titanium", "Silver", "Gold", "Platinum", "Amethyst", "Beryl",
-            "Emerald", "Garnet", "Jade", "Opal", "Quartz", "Ruby", "Sapphire",
-            "Topaz", "Diamond", "Magic" };
+    static final String[] MATERIAL_COMMON_NAMES = { "Uranium", "Leather", "Fur", "Silk", "Shell", "Scale", "Copper",
+	    "Bronze", "Iron", "Steel", "Titanium", "Silver", "Gold", "Platinum", "Amethyst", "Beryl", "Emerald",
+	    "Garnet", "Jade", "Opal", "Quartz", "Ruby", "Sapphire", "Topaz", "Diamond", "Magic" };
 }

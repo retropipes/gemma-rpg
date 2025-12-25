@@ -14,44 +14,44 @@ class ImageCacheEntry {
 
     // Constructor
     ImageCacheEntry(BufferedImageIcon image, String n) {
-        this.entry = image;
-        this.name = n;
+	this.entry = image;
+	this.name = n;
     }
 
     // Methods
     BufferedImageIcon getEntry() {
-        return this.entry;
+	return this.entry;
     }
 
     String getName() {
-        return this.name;
+	return this.name;
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        return prime + ((this.name == null) ? 0 : this.name.hashCode());
+	final int prime = 31;
+	return prime + ((this.name == null) ? 0 : this.name.hashCode());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof ImageCacheEntry)) {
-            return false;
-        }
-        ImageCacheEntry other = (ImageCacheEntry) obj;
-        if (this.name == null) {
-            if (other.name != null) {
-                return false;
-            }
-        } else if (!this.name.equals(other.name)) {
-            return false;
-        }
-        return true;
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (!(obj instanceof ImageCacheEntry)) {
+	    return false;
+	}
+	ImageCacheEntry other = (ImageCacheEntry) obj;
+	if (this.name == null) {
+	    if (other.name != null) {
+		return false;
+	    }
+	} else if (!this.name.equals(other.name)) {
+	    return false;
+	}
+	return true;
     }
 }

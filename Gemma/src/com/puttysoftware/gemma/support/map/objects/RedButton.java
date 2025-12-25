@@ -10,22 +10,21 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 
 public class RedButton extends GenericButton {
     public RedButton() {
-        super(new RedWallOff(), new RedWallOn(),
-                new TemplateTransform(1.0, 0.0, 0.0));
+	super(new RedWallOff(), new RedWallOn(), new TemplateTransform(1.0, 0.0, 0.0));
     }
 
     @Override
     public String getName() {
-        return "Red Button";
+	return "Red Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Red Buttons";
+	return "Red Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Red Buttons will cause all Red Walls Off to become On, and all Red Walls On to become Off.";
+	return "Red Buttons will cause all Red Walls Off to become On, and all Red Walls On to become Off.";
     }
 }

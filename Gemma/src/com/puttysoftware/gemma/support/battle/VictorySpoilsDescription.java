@@ -12,36 +12,36 @@ public class VictorySpoilsDescription {
 
     // Constructor
     public VictorySpoilsDescription(int monsterCount) {
-        this.expPerMonster = new long[monsterCount];
-        this.goldWon = 0;
+	this.expPerMonster = new long[monsterCount];
+	this.goldWon = 0;
     }
 
     // Methods
     public long getExpPerMonster(int index) {
-        return this.expPerMonster[index];
+	return this.expPerMonster[index];
     }
 
     public long getTotalExp() {
-        long total = 0;
-        for (int x = 0; x < this.expPerMonster.length; x++) {
-            total += this.expPerMonster[x];
-        }
-        return total;
+	long total = 0;
+	for (int x = 0; x < this.expPerMonster.length; x++) {
+	    total += this.expPerMonster[x];
+	}
+	return total;
     }
 
     public void setExpPerMonster(int index, long value) {
-        this.expPerMonster[index] = value;
+	this.expPerMonster[index] = value;
     }
 
     public int getGoldWon() {
-        return this.goldWon;
+	return this.goldWon;
     }
 
     public void setGoldWon(int value) {
-        this.goldWon = value;
+	this.goldWon = value;
     }
 
     public int getMonsterCount() {
-        return this.expPerMonster.length;
+	return this.expPerMonster.length;
     }
 }

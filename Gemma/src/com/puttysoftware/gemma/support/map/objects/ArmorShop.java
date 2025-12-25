@@ -12,21 +12,21 @@ import com.puttysoftware.gemma.support.map.generic.GenericShop;
 public class ArmorShop extends GenericShop {
     // Constructors
     public ArmorShop() {
-        super(ShopTypes.SHOP_TYPE_ARMOR);
+	super(ShopTypes.SHOP_TYPE_ARMOR);
     }
 
     @Override
     public String getName() {
-        return "Armor Shop";
+	return "Armor Shop";
     }
 
     @Override
     public String getPluralName() {
-        return "Armor Shops";
+	return "Armor Shops";
     }
 
     @Override
     public String getDescription() {
-        return "Armor Shops sell protective armor.";
+	return "Armor Shops sell protective armor.";
     }
 }

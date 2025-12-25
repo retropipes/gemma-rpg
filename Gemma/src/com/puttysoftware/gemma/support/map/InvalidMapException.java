@@ -11,10 +11,10 @@ public class InvalidMapException extends Exception {
 
     // Constructors
     public InvalidMapException() {
-        super();
+	super();
     }
 
     public InvalidMapException(final String msg) {
-        super(msg);
+	super(msg);
     }
 }

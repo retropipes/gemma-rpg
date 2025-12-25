@@ -13,14 +13,14 @@ class SoundNames {
 
     // Private constructor
     private SoundNames() {
-        // Do nothing
+	// Do nothing
     }
 
     // Methods
     static String[] getSoundNames() {
-        if (SoundNames.SOUND_NAMES == null) {
-            SoundNames.SOUND_NAMES = SoundDataManager.getSoundData();
-        }
-        return SoundNames.SOUND_NAMES;
+	if (SoundNames.SOUND_NAMES == null) {
+	    SoundNames.SOUND_NAMES = SoundDataManager.getSoundData();
+	}
+	return SoundNames.SOUND_NAMES;
     }
 }

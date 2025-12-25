@@ -10,22 +10,21 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 
 public class SeaweedButton extends GenericButton {
     public SeaweedButton() {
-        super(new SeaweedWallOff(), new SeaweedWallOn(),
-                new TemplateTransform(0.5, 1.0, 0.5));
+	super(new SeaweedWallOff(), new SeaweedWallOn(), new TemplateTransform(0.5, 1.0, 0.5));
     }
 
     @Override
     public String getName() {
-        return "Seaweed Button";
+	return "Seaweed Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Buttons";
+	return "Seaweed Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Buttons will cause all Seaweed Walls Off to become On, and all Seaweed Walls On to become Off.";
+	return "Seaweed Buttons will cause all Seaweed Walls Off to become On, and all Seaweed Walls On to become Off.";
     }
 }

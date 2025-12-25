@@ -12,22 +12,21 @@ public class MusicConstants {
     public static final int MUSIC_CREATE = 2;
     public static final int MUSIC_EXPLORING = 3;
     // Private Music Constants
-    private static final String[] MUSIC_NAMES = { "battle", "boss", "create",
-            "dungeon" };
+    private static final String[] MUSIC_NAMES = { "battle", "boss", "create", "dungeon" };
 
     // Private constructor
     private MusicConstants() {
-        // Do nothing
+	// Do nothing
     }
 
     static String getMusicNameForID(final int musicID, final int offset) {
-        String offsetStr = "";
-        if (musicID == MusicConstants.MUSIC_EXPLORING) {
-            offsetStr = Integer.toString(offset);
-            if (offset < 10) {
-                offsetStr = "0" + offsetStr;
-            }
-        }
-        return MUSIC_NAMES[musicID] + offsetStr + ".ogg";
+	String offsetStr = "";
+	if (musicID == MusicConstants.MUSIC_EXPLORING) {
+	    offsetStr = Integer.toString(offset);
+	    if (offset < 10) {
+		offsetStr = "0" + offsetStr;
+	    }
+	}
+	return MUSIC_NAMES[musicID] + offsetStr + ".ogg";
     }
 }

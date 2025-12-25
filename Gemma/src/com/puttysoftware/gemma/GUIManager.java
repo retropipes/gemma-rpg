@@ -33,121 +33,119 @@ public class GUIManager {
 
     // Constructors
     public GUIManager() {
-        CloseHandler cHandler = new CloseHandler();
-        if (Support.inDebugMode()) {
-            this.guiFrame = new JFrame(Gemma.getProgramName() + " (DEBUG)");
-        } else {
-            this.guiFrame = new JFrame(Gemma.getProgramName());
-        }
-        Container guiPane = this.guiFrame.getContentPane();
-        this.guiFrame
-                .setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        this.guiFrame.setLayout(new GridLayout(1, 1));
-        this.logoLabel = new JLabel("", null, SwingConstants.CENTER);
-        this.logoLabel.setBorder(new EmptyBorder(0, 0, 0, 0));
-        guiPane.add(this.logoLabel);
-        this.guiFrame.setResizable(false);
-        this.guiFrame.addWindowListener(cHandler);
+	CloseHandler cHandler = new CloseHandler();
+	if (Support.inDebugMode()) {
+	    this.guiFrame = new JFrame(Gemma.getProgramName() + " (DEBUG)");
+	} else {
+	    this.guiFrame = new JFrame(Gemma.getProgramName());
+	}
+	Container guiPane = this.guiFrame.getContentPane();
+	this.guiFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+	this.guiFrame.setLayout(new GridLayout(1, 1));
+	this.logoLabel = new JLabel("", null, SwingConstants.CENTER);
+	this.logoLabel.setBorder(new EmptyBorder(0, 0, 0, 0));
+	guiPane.add(this.logoLabel);
+	this.guiFrame.setResizable(false);
+	this.guiFrame.addWindowListener(cHandler);
     }
 
     // Methods
     JFrame getGUIFrame() {
-        if (this.guiFrame.isVisible()) {
-            return this.guiFrame;
-        } else {
-            return null;
-        }
+	if (this.guiFrame.isVisible()) {
+	    return this.guiFrame;
+	} else {
+	    return null;
+	}
     }
 
     public void showGUI() {
-        Application app = Gemma.getApplication();
-        app.setInGUI();
-        this.guiFrame.setJMenuBar(app.getMenuManager().getMainMenuBar());
-        this.guiFrame.setVisible(true);
-        app.getMenuManager().setMainMenus();
-        app.getMenuManager().checkFlags();
+	Application app = Gemma.getApplication();
+	app.setInGUI();
+	this.guiFrame.setJMenuBar(app.getMenuManager().getMainMenuBar());
+	this.guiFrame.setVisible(true);
+	app.getMenuManager().setMainMenus();
+	app.getMenuManager().checkFlags();
     }
 
     public void hideGUI() {
-        this.guiFrame.setVisible(false);
+	this.guiFrame.setVisible(false);
     }
 
     void updateLogo() {
-        final BufferedImageIcon logo = LogoManager.getLogo();
-        this.logoLabel.setIcon(logo);
-        final Image iconlogo = LogoManager.getIconLogo();
-        this.guiFrame.setIconImage(iconlogo);
-        this.guiFrame.pack();
+	final BufferedImageIcon logo = LogoManager.getLogo();
+	this.logoLabel.setIcon(logo);
+	final Image iconlogo = LogoManager.getIconLogo();
+	this.guiFrame.setIconImage(iconlogo);
+	this.guiFrame.pack();
     }
 
     public boolean quitHandler() {
-        ScenarioManager mm = Gemma.getApplication().getScenarioManager();
-        boolean saved = true;
-        int status;
-        if (mm.getDirty()) {
-            status = ScenarioManager.showSaveDialog();
-            if (status == JOptionPane.YES_OPTION) {
-                saved = mm.saveGame();
-            } else if (status == JOptionPane.CANCEL_OPTION) {
-                saved = false;
-            } else {
-                mm.setDirty(false);
-            }
-        }
-        if (saved) {
-            PreferencesManager.writePrefs();
-            // Run cleanup task
-            try {
-                File dirToDelete = new File(System.getProperty("java.io.tmpdir")
-                        + File.separator + "Gemma");
-                DirectoryUtilities.removeDirectory(dirToDelete);
-            } catch (Throwable t) {
-                // Ignore
-            }
-        }
-        return saved;
+	ScenarioManager mm = Gemma.getApplication().getScenarioManager();
+	boolean saved = true;
+	int status;
+	if (mm.getDirty()) {
+	    status = ScenarioManager.showSaveDialog();
+	    if (status == JOptionPane.YES_OPTION) {
+		saved = mm.saveGame();
+	    } else if (status == JOptionPane.CANCEL_OPTION) {
+		saved = false;
+	    } else {
+		mm.setDirty(false);
+	    }
+	}
+	if (saved) {
+	    PreferencesManager.writePrefs();
+	    // Run cleanup task
+	    try {
+		File dirToDelete = new File(System.getProperty("java.io.tmpdir") + File.separator + "Gemma");
+		DirectoryUtilities.removeDirectory(dirToDelete);
+	    } catch (Throwable t) {
+		// Ignore
+	    }
+	}
+	return saved;
     }
 
     private class CloseHandler implements WindowListener {
-        public CloseHandler() {
-            // Do nothing
-        }
+	public CloseHandler() {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowActivated(WindowEvent arg0) {
-            // Do nothing
-        }
+	@Override
+	public void windowActivated(WindowEvent arg0) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowClosed(WindowEvent arg0) {
-            // Do nothing
-        }
+	@Override
+	public void windowClosed(WindowEvent arg0) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowClosing(WindowEvent arg0) {
-            if (GUIManager.this.quitHandler()) {
-                System.exit(0);
-            }
-        }
+	@Override
+	public void windowClosing(WindowEvent arg0) {
+	    if (GUIManager.this.quitHandler()) {
+		System.exit(0);
+	    }
+	}
 
-        @Override
-        public void windowDeactivated(WindowEvent arg0) {
-            // Do nothing
-        }
+	@Override
+	public void windowDeactivated(WindowEvent arg0) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowDeiconified(WindowEvent arg0) {
-            // Do nothing
-        }
+	@Override
+	public void windowDeiconified(WindowEvent arg0) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowIconified(WindowEvent arg0) {
-            // Do nothing
-        }
+	@Override
+	public void windowIconified(WindowEvent arg0) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowOpened(WindowEvent arg0) {
-            // Do nothing
-        }
+	@Override
+	public void windowOpened(WindowEvent arg0) {
+	    // Do nothing
+	}
     }
 }

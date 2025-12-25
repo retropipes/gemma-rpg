@@ -17,30 +17,28 @@ class PrefixHandler implements PrefixIO {
 
     @Override
     public int readPrefix(XDataReader reader) throws IOException {
-        byte formatVer = PrefixHandler.readFormatVersion(reader);
-        boolean res = PrefixHandler.checkFormatVersion(formatVer);
-        if (!res) {
-            throw new IOException("Unsupported scenario format version.");
-        }
-        return formatVer;
+	byte formatVer = PrefixHandler.readFormatVersion(reader);
+	boolean res = PrefixHandler.checkFormatVersion(formatVer);
+	if (!res) {
+	    throw new IOException("Unsupported scenario format version.");
+	}
+	return formatVer;
     }
 
     @Override
     public void writePrefix(XDataWriter writer) throws IOException {
-        PrefixHandler.writeFormatVersion(writer);
+	PrefixHandler.writeFormatVersion(writer);
     }
 
-    private static byte readFormatVersion(XDataReader reader)
-            throws IOException {
-        return reader.readByte();
+    private static byte readFormatVersion(XDataReader reader) throws IOException {
+	return reader.readByte();
     }
 
     private static boolean checkFormatVersion(byte version) {
-        return (version <= PrefixHandler.FORMAT_VERSION);
+	return (version <= PrefixHandler.FORMAT_VERSION);
     }
 
-    private static void writeFormatVersion(XDataWriter writer)
-            throws IOException {
-        writer.writeByte(PrefixHandler.FORMAT_VERSION);
+    private static void writeFormatVersion(XDataWriter writer) throws IOException {
+	writer.writeByte(PrefixHandler.FORMAT_VERSION);
     }
 }

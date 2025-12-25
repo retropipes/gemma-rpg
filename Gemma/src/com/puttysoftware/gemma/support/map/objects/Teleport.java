@@ -10,21 +10,21 @@ import com.puttysoftware.gemma.support.map.generic.GenericTeleport;
 public class Teleport extends GenericTeleport {
     // Constructors
     public Teleport() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Teleport";
+	return "Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "Teleports";
+	return "Teleports";
     }
 
     @Override
     public String getDescription() {
-        return "Teleports send you to a predetermined destination when stepped on.";
+	return "Teleports send you to a predetermined destination when stepped on.";
     }
 }

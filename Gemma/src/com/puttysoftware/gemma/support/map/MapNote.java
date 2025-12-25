@@ -17,32 +17,32 @@ public class MapNote extends CloneableObject {
 
     // Constructor
     public MapNote() {
-        this.contents = "Empty Note";
+	this.contents = "Empty Note";
     }
 
     // Methods
     public String getContents() {
-        return this.contents;
+	return this.contents;
     }
 
     public void setContents(String newContents) {
-        this.contents = newContents;
+	this.contents = newContents;
     }
 
     @Override
     public CloneableObject clone() {
-        MapNote copy = new MapNote();
-        copy.contents = this.contents;
-        return copy;
+	MapNote copy = new MapNote();
+	copy.contents = this.contents;
+	return copy;
     }
 
     static MapNote readNote(XDataReader reader) throws IOException {
-        MapNote mn = new MapNote();
-        mn.contents = reader.readString();
-        return mn;
+	MapNote mn = new MapNote();
+	mn.contents = reader.readString();
+	return mn;
     }
 
     void writeNote(XDataWriter writer) throws IOException {
-        writer.writeString(this.contents);
+	writer.writeString(this.contents);
     }
 }

@@ -34,34 +34,32 @@ import com.puttysoftware.commondialogs.CommonDialogs;
  */
 public class BoardPrinter {
     private BoardPrinter() {
-        // Do nothing
+	// Do nothing
     }
 
     public static void printBoard(JFrame j) {
-        try {
-            Container c = j.getContentPane();
-            Dimension d = c.getPreferredSize();
-            BufferedImage bi = new BufferedImage(d.width, d.height,
-                    BufferedImage.TYPE_INT_ARGB);
-            c.paintComponents(bi.createGraphics());
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(bi, "PNG", baos);
-            byte[] data = baos.toByteArray();
-            ByteArrayInputStream bais = new ByteArrayInputStream(data);
-            PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
-            DocFlavor flavor = DocFlavor.INPUT_STREAM.PNG;
-            PrinterJob pj = PrinterJob.getPrinterJob();
-            boolean okay = pj.printDialog(pras);
-            if (okay) {
-                PrintService service = pj.getPrintService();
-                DocPrintJob job = service.createPrintJob();
-                DocAttributeSet das = new HashDocAttributeSet();
-                Doc doc = new SimpleDoc(bais, flavor, das);
-                job.print(doc, pras);
-            }
-        } catch (IOException | PrintException | NullPointerException ioe) {
-            CommonDialogs.showErrorDialog("Printing failed!",
-                    "Print GameBoard");
-        }
+	try {
+	    Container c = j.getContentPane();
+	    Dimension d = c.getPreferredSize();
+	    BufferedImage bi = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
+	    c.paintComponents(bi.createGraphics());
+	    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	    ImageIO.write(bi, "PNG", baos);
+	    byte[] data = baos.toByteArray();
+	    ByteArrayInputStream bais = new ByteArrayInputStream(data);
+	    PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
+	    DocFlavor flavor = DocFlavor.INPUT_STREAM.PNG;
+	    PrinterJob pj = PrinterJob.getPrinterJob();
+	    boolean okay = pj.printDialog(pras);
+	    if (okay) {
+		PrintService service = pj.getPrintService();
+		DocPrintJob job = service.createPrintJob();
+		DocAttributeSet das = new HashDocAttributeSet();
+		Doc doc = new SimpleDoc(bais, flavor, das);
+		job.print(doc, pras);
+	    }
+	} catch (IOException | PrintException | NullPointerException ioe) {
+	    CommonDialogs.showErrorDialog("Printing failed!", "Print GameBoard");
+	}
     }
 }

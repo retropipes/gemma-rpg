@@ -11,15 +11,15 @@ import com.puttysoftware.llds.LowLevelObjectDataStore;
 class LowLevelDataStore extends LowLevelObjectDataStore {
     // Constructor
     LowLevelDataStore(int... shape) {
-        super(shape);
+	super(shape);
     }
 
     // Methods
     public MapObject getMapCell(int... loc) {
-        return (MapObject) this.getCell(loc);
+	return (MapObject) this.getCell(loc);
     }
 
     public void setMapCell(MapObject obj, int... loc) {
-        this.setCell(obj, loc);
+	this.setCell(obj, loc);
     }
 }

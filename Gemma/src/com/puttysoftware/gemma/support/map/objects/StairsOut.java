@@ -21,60 +21,56 @@ public class StairsOut extends GenericTeleport {
 
     // Constructors
     public StairsOut() {
-        super();
-        this.setTemplateTransform(new TemplateTransform(1.0, 1.0, 1.0));
-        // Create post-move script
-        InternalScript scpt = new InternalScript();
-        InternalScriptEntry entry1 = new InternalScriptEntry();
-        entry1.setActionCode(InternalScriptActionCode.RELATIVE_LEVEL_CHANGE);
-        entry1.addActionArg(new InternalScriptEntryArgument(-1));
-        entry1.finalizeActionArgs();
-        scpt.addAction(entry1);
-        InternalScriptEntry entry2 = new InternalScriptEntry();
-        entry2.setActionCode(InternalScriptActionCode.SOUND);
-        entry2.addActionArg(new InternalScriptEntryArgument(
-                GameSoundConstants.SOUND_STAIRS));
-        entry2.finalizeActionArgs();
-        scpt.addAction(entry2);
-        scpt.finalizeActions();
-        this.postMoveScript = scpt;
+	super();
+	this.setTemplateTransform(new TemplateTransform(1.0, 1.0, 1.0));
+	// Create post-move script
+	InternalScript scpt = new InternalScript();
+	InternalScriptEntry entry1 = new InternalScriptEntry();
+	entry1.setActionCode(InternalScriptActionCode.RELATIVE_LEVEL_CHANGE);
+	entry1.addActionArg(new InternalScriptEntryArgument(-1));
+	entry1.finalizeActionArgs();
+	scpt.addAction(entry1);
+	InternalScriptEntry entry2 = new InternalScriptEntry();
+	entry2.setActionCode(InternalScriptActionCode.SOUND);
+	entry2.addActionArg(new InternalScriptEntryArgument(GameSoundConstants.SOUND_STAIRS));
+	entry2.finalizeActionArgs();
+	scpt.addAction(entry2);
+	scpt.finalizeActions();
+	this.postMoveScript = scpt;
     }
 
     @Override
     public String getName() {
-        return "Stairs Out";
+	return "Stairs Out";
     }
 
     @Override
     public String getPluralName() {
-        return "Sets of Stairs Out";
+	return "Sets of Stairs Out";
     }
 
     @Override
-    public InternalScript getPostMoveScript(final boolean ie, final int dirX,
-            final int dirY, final int dirZ) {
-        PartyManager.getParty().decreaseDungeonLevel();
-        return this.postMoveScript;
+    public InternalScript getPostMoveScript(final boolean ie, final int dirX, final int dirY, final int dirZ) {
+	PartyManager.getParty().decreaseDungeonLevel();
+	return this.postMoveScript;
     }
 
     @Override
     public String getDescription() {
-        return "Stairs Out lead further away from the depths of the dungeon.";
+	return "Stairs Out lead further away from the depths of the dungeon.";
     }
 
     @Override
     public int getCustomFormat() {
-        return 0;
+	return 0;
     }
 
     @Override
-    public boolean shouldGenerateObject(Map map, int row, int col, int floor,
-            int level, int layer) {
-        if (!map.doesLevelExistOffset(-1)) {
-            return false;
-        } else {
-            return super.shouldGenerateObject(map, row, col, floor, level,
-                    layer);
-        }
+    public boolean shouldGenerateObject(Map map, int row, int col, int floor, int level, int layer) {
+	if (!map.doesLevelExistOffset(-1)) {
+	    return false;
+	} else {
+	    return super.shouldGenerateObject(map, row, col, floor, level, layer);
+	}
     }
 }

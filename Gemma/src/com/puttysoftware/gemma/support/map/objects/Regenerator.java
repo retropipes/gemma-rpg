@@ -11,21 +11,21 @@ import com.puttysoftware.gemma.support.map.generic.GenericShop;
 public class Regenerator extends GenericShop {
     // Constructors
     public Regenerator() {
-        super(ShopTypes.SHOP_TYPE_REGENERATOR);
+	super(ShopTypes.SHOP_TYPE_REGENERATOR);
     }
 
     @Override
     public String getName() {
-        return "Regenerator";
+	return "Regenerator";
     }
 
     @Override
     public String getPluralName() {
-        return "Regenerators";
+	return "Regenerators";
     }
 
     @Override
     public String getDescription() {
-        return "Regenerators restore magic, for a fee.";
+	return "Regenerators restore magic, for a fee.";
     }
 }

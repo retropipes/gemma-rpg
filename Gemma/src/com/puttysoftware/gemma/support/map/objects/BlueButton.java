@@ -10,22 +10,21 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 
 public class BlueButton extends GenericButton {
     public BlueButton() {
-        super(new BlueWallOff(), new BlueWallOn(),
-                new TemplateTransform(0.0, 0.0, 1.0));
+	super(new BlueWallOff(), new BlueWallOn(), new TemplateTransform(0.0, 0.0, 1.0));
     }
 
     @Override
     public String getName() {
-        return "Blue Button";
+	return "Blue Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Blue Buttons";
+	return "Blue Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Blue Buttons will cause all Blue Walls Off to become On, and all Blue Walls On to become Off.";
+	return "Blue Buttons will cause all Blue Walls Off to become On, and all Blue Walls On to become Off.";
     }
 }

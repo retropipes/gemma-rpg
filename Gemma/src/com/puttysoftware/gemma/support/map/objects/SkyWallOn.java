@@ -11,22 +11,22 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class SkyWallOn extends GenericToggleWall {
     // Constructors
     public SkyWallOn() {
-        super(true, new TemplateTransform(0.5, 0.5, 1.0));
+	super(true, new TemplateTransform(0.5, 0.5, 1.0));
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Sky Wall On";
+	return "Sky Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "Sky Walls On";
+	return "Sky Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "Sky Walls On can NOT be walked through, and will change to Sky Walls Off when a Sky Button is pressed.";
+	return "Sky Walls On can NOT be walked through, and will change to Sky Walls Off when a Sky Button is pressed.";
     }
 }

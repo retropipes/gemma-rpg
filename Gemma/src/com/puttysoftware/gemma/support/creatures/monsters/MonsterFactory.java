@@ -7,14 +7,14 @@ package com.puttysoftware.gemma.support.creatures.monsters;
 
 public class MonsterFactory {
     private MonsterFactory() {
-        // Do nothing
+	// Do nothing
     }
 
     public static BaseMonster getNewMonsterInstance() {
-        return new BothRandomScalingStaticMonster();
+	return new BothRandomScalingStaticMonster();
     }
 
     public static BaseMonster getBossMonsterInstance() {
-        return new BossMonster();
+	return new BossMonster();
     }
 }

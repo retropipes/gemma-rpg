@@ -18,48 +18,45 @@ public class Battle {
 
     // Constructors
     public Battle() {
-        super();
-        this.monsterArray = new BaseMonster[Battle.MAX_MONSTERS];
-        // Fill array with monsters
-        if (PartyManager.getParty().getLeader()
-                .getLevel() < StatConstants.LEVEL_MAX) {
-            int numMonsters = PartyManager.getParty().getActivePCCount();
-            for (int x = 0; x < numMonsters; x++) {
-                this.monsterArray[x] = MonsterFactory.getNewMonsterInstance();
-            }
-        } else {
-            this.monsterArray[0] = MonsterFactory.getBossMonsterInstance();
-        }
+	super();
+	this.monsterArray = new BaseMonster[Battle.MAX_MONSTERS];
+	// Fill array with monsters
+	if (PartyManager.getParty().getLeader().getLevel() < StatConstants.LEVEL_MAX) {
+	    int numMonsters = PartyManager.getParty().getActivePCCount();
+	    for (int x = 0; x < numMonsters; x++) {
+		this.monsterArray[x] = MonsterFactory.getNewMonsterInstance();
+	    }
+	} else {
+	    this.monsterArray[0] = MonsterFactory.getBossMonsterInstance();
+	}
     }
 
     // Methods
     public boolean isBossBattle() {
-        return PartyManager.getParty().getLeader()
-                .getLevel() == StatConstants.LEVEL_MAX;
+	return PartyManager.getParty().getLeader().getLevel() == StatConstants.LEVEL_MAX;
     }
 
     private BaseMonster[] compactMonsterArray() {
-        BaseMonster[] temp = new BaseMonster[this.monsterArray.length];
-        System.arraycopy(this.monsterArray, 0, temp, 0,
-                this.monsterArray.length);
-        for (int x = 0; x < temp.length; x++) {
-            if (temp[x] == null) {
-                if (x < temp.length - 1) {
-                    temp[x] = temp[x + 1];
-                }
-            }
-        }
-        return temp;
+	BaseMonster[] temp = new BaseMonster[this.monsterArray.length];
+	System.arraycopy(this.monsterArray, 0, temp, 0, this.monsterArray.length);
+	for (int x = 0; x < temp.length; x++) {
+	    if (temp[x] == null) {
+		if (x < temp.length - 1) {
+		    temp[x] = temp[x + 1];
+		}
+	    }
+	}
+	return temp;
     }
 
     public BattleCharacter[] getBattlers() {
-        BaseMonster[] compacted = this.compactMonsterArray();
-        BattleCharacter[] battlerArray = new BattleCharacter[compacted.length];
-        for (int x = 0; x < battlerArray.length; x++) {
-            if (compacted[x] != null) {
-                battlerArray[x] = new BattleCharacter(compacted[x]);
-            }
-        }
-        return battlerArray;
+	BaseMonster[] compacted = this.compactMonsterArray();
+	BattleCharacter[] battlerArray = new BattleCharacter[compacted.length];
+	for (int x = 0; x < battlerArray.length; x++) {
+	    if (compacted[x] != null) {
+		battlerArray[x] = new BattleCharacter(compacted[x]);
+	    }
+	}
+	return battlerArray;
     }
 }

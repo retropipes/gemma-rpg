@@ -28,77 +28,74 @@ public class AboutDialog {
 
     // Constructors
     AboutDialog(String ver) {
-        setUpGUI(ver);
+	setUpGUI(ver);
     }
 
     // Methods
     public void showAboutDialog() {
-        this.aboutFrame.setVisible(true);
+	this.aboutFrame.setVisible(true);
     }
 
     void hideAboutDialog() {
-        this.aboutFrame.setVisible(false);
+	this.aboutFrame.setVisible(false);
     }
 
     private void setUpGUI(String ver) {
-        String suffix;
-        if (Support.inDebugMode()) {
-            suffix = " (DEBUG)";
-        } else {
-            suffix = "";
-        }
-        EventHandler handler = new EventHandler();
-        this.aboutFrame = new JFrame("About Gemma" + suffix);
-        final Image iconlogo = Application.getIconLogo();
-        this.aboutFrame.setIconImage(iconlogo);
-        Container aboutPane = new Container();
-        Container textPane = new Container();
-        Container buttonPane = new Container();
-        Container logoPane = new Container();
-        JButton aboutOK = new JButton("OK");
-        JLabel miniLabel = new JLabel("", LogoManager.getMiniatureLogo(),
-                SwingConstants.LEFT);
-        aboutOK.setDefaultCapable(true);
-        this.aboutFrame.getRootPane().setDefaultButton(aboutOK);
-        this.aboutFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-        aboutPane.setLayout(new BorderLayout());
-        logoPane.setLayout(new FlowLayout());
-        logoPane.add(miniLabel);
-        textPane.setLayout(new GridLayout(4, 1));
-        textPane.add(new JLabel("Gemma Version: " + ver));
-        textPane.add(new JLabel("Author: Eric Ahnell"));
-        textPane.add(
-                new JLabel("Web Site: http://www.puttysoftware.com/gemma/"));
-        textPane.add(new JLabel(
-                "E-mail bug reports to: support@puttysoftware.com  "));
-        buttonPane.setLayout(new FlowLayout());
-        buttonPane.add(aboutOK);
-        aboutPane.add(logoPane, BorderLayout.WEST);
-        aboutPane.add(textPane, BorderLayout.CENTER);
-        aboutPane.add(buttonPane, BorderLayout.SOUTH);
-        this.aboutFrame.setResizable(false);
-        aboutOK.addActionListener(handler);
-        this.aboutFrame.setContentPane(aboutPane);
-        this.aboutFrame.pack();
+	String suffix;
+	if (Support.inDebugMode()) {
+	    suffix = " (DEBUG)";
+	} else {
+	    suffix = "";
+	}
+	EventHandler handler = new EventHandler();
+	this.aboutFrame = new JFrame("About Gemma" + suffix);
+	final Image iconlogo = Application.getIconLogo();
+	this.aboutFrame.setIconImage(iconlogo);
+	Container aboutPane = new Container();
+	Container textPane = new Container();
+	Container buttonPane = new Container();
+	Container logoPane = new Container();
+	JButton aboutOK = new JButton("OK");
+	JLabel miniLabel = new JLabel("", LogoManager.getMiniatureLogo(), SwingConstants.LEFT);
+	aboutOK.setDefaultCapable(true);
+	this.aboutFrame.getRootPane().setDefaultButton(aboutOK);
+	this.aboutFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+	aboutPane.setLayout(new BorderLayout());
+	logoPane.setLayout(new FlowLayout());
+	logoPane.add(miniLabel);
+	textPane.setLayout(new GridLayout(4, 1));
+	textPane.add(new JLabel("Gemma Version: " + ver));
+	textPane.add(new JLabel("Author: Eric Ahnell"));
+	textPane.add(new JLabel("Web Site: http://www.puttysoftware.com/gemma/"));
+	textPane.add(new JLabel("E-mail bug reports to: support@puttysoftware.com  "));
+	buttonPane.setLayout(new FlowLayout());
+	buttonPane.add(aboutOK);
+	aboutPane.add(logoPane, BorderLayout.WEST);
+	aboutPane.add(textPane, BorderLayout.CENTER);
+	aboutPane.add(buttonPane, BorderLayout.SOUTH);
+	this.aboutFrame.setResizable(false);
+	aboutOK.addActionListener(handler);
+	this.aboutFrame.setContentPane(aboutPane);
+	this.aboutFrame.pack();
     }
 
     private class EventHandler implements ActionListener {
-        public EventHandler() {
-            // Do nothing
-        }
+	public EventHandler() {
+	    // Do nothing
+	}
 
-        // Handle buttons
-        @Override
-        public void actionPerformed(final ActionEvent e) {
-            try {
-                AboutDialog ad = AboutDialog.this;
-                final String cmd = e.getActionCommand();
-                if (cmd.equals("OK")) {
-                    ad.hideAboutDialog();
-                }
-            } catch (Exception ex) {
-                Gemma.getErrorLogger().logError(ex);
-            }
-        }
+	// Handle buttons
+	@Override
+	public void actionPerformed(final ActionEvent e) {
+	    try {
+		AboutDialog ad = AboutDialog.this;
+		final String cmd = e.getActionCommand();
+		if (cmd.equals("OK")) {
+		    ad.hideAboutDialog();
+		}
+	    } catch (Exception ex) {
+		Gemma.getErrorLogger().logError(ex);
+	    }
+	}
     }
 }

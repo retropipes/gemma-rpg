@@ -14,40 +14,39 @@ import com.puttysoftware.randomrange.RandomRange;
 abstract class BothRandomBaseMonster extends BaseMonster {
     // Constructors
     BothRandomBaseMonster() {
-        super();
-        this.element = BothRandomBaseMonster.getInitialElement();
-        this.image = this.getInitialImage();
+	super();
+	this.element = BothRandomBaseMonster.getInitialElement();
+	this.image = this.getInitialImage();
     }
 
     @Override
     public boolean randomAppearance() {
-        return true;
+	return true;
     }
 
     @Override
     public boolean randomFaith() {
-        return true;
+	return true;
     }
 
     @Override
     protected BufferedImageIcon getInitialImage() {
-        if (this.getLevel() == 0) {
-            return null;
-        } else {
-            final String[] types = MonsterNames.getAllNames();
-            final RandomRange r = new RandomRange(0, types.length - 1);
-            this.setType(types[r.generate()]);
-            return ImageManager.getMonsterImage(this.getType(),
-                    this.getElement());
-        }
+	if (this.getLevel() == 0) {
+	    return null;
+	} else {
+	    final String[] types = MonsterNames.getAllNames();
+	    final RandomRange r = new RandomRange(0, types.length - 1);
+	    this.setType(types[r.generate()]);
+	    return ImageManager.getMonsterImage(this.getType(), this.getElement());
+	}
     }
 
     private static Element getInitialElement() {
-        return new Element(FaithManager.getRandomFaith());
+	return new Element(FaithManager.getRandomFaith());
     }
 
     @Override
     public void loadMonster() {
-        this.image = this.getInitialImage();
+	this.image = this.getInitialImage();
     }
 }

@@ -10,8 +10,8 @@ import com.puttysoftware.gemma.support.map.MapConstants;
 public abstract class GenericWall extends MapObject {
     // Constructors
     protected GenericWall() {
-        super(true);
-        this.setSightBlocking(true);
+	super(true);
+	this.setSightBlocking(true);
     }
 
     @Override
@@ -19,21 +19,21 @@ public abstract class GenericWall extends MapObject {
 
     @Override
     public int getLayer() {
-        return MapConstants.LAYER_OBJECT;
+	return MapConstants.LAYER_OBJECT;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_WALL);
+	this.type.set(TypeConstants.TYPE_WALL);
     }
 
     @Override
     public int getCustomProperty(int propID) {
-        return MapObject.DEFAULT_CUSTOM_VALUE;
+	return MapObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(int propID, int value) {
-        // Do nothing
+	// Do nothing
     }
 }

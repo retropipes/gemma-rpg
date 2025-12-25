@@ -11,32 +11,32 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class HotRock extends GenericGround {
     // Constructors
     public HotRock() {
-        super();
-        this.setTemplateTransform(new TemplateTransform(1.0, 0.0, 0.0));
+	super();
+	this.setTemplateTransform(new TemplateTransform(1.0, 0.0, 0.0));
     }
 
     @Override
     public String getName() {
-        return "Hot Rock";
+	return "Hot Rock";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Hot Rock";
+	return "Squares of Hot Rock";
     }
 
     @Override
     public String getDescription() {
-        return "Hot Rock is one of the many types of ground.";
+	return "Hot Rock is one of the many types of ground.";
     }
 
     @Override
     public String getGameImageNameHook() {
-        return "textured";
+	return "textured";
     }
 
     @Override
     public String getEditorImageNameHook() {
-        return "textured";
+	return "textured";
     }
 }

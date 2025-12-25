@@ -10,22 +10,21 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 
 public class WhiteButton extends GenericButton {
     public WhiteButton() {
-        super(new WhiteWallOff(), new WhiteWallOn(),
-                new TemplateTransform(1.0, 1.0, 1.0));
+	super(new WhiteWallOff(), new WhiteWallOn(), new TemplateTransform(1.0, 1.0, 1.0));
     }
 
     @Override
     public String getName() {
-        return "White Button";
+	return "White Button";
     }
 
     @Override
     public String getPluralName() {
-        return "White Buttons";
+	return "White Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "White Buttons will cause all White Walls Off to become On, and all White Walls On to become Off.";
+	return "White Buttons will cause all White Walls Off to become On, and all White Walls On to become Off.";
     }
 }

@@ -11,22 +11,22 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class RoseWallOn extends GenericToggleWall {
     // Constructors
     public RoseWallOn() {
-        super(true, new TemplateTransform(1.0, 0.5, 0.5));
+	super(true, new TemplateTransform(1.0, 0.5, 0.5));
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Rose Wall On";
+	return "Rose Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "Rose Walls On";
+	return "Rose Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "Rose Walls On can NOT be walked through, and will change to Rose Walls Off when a Rose Button is pressed.";
+	return "Rose Walls On can NOT be walked through, and will change to Rose Walls Off when a Rose Button is pressed.";
     }
 }

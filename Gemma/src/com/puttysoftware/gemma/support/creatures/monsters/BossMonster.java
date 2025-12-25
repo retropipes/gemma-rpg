@@ -8,11 +8,11 @@ package com.puttysoftware.gemma.support.creatures.monsters;
 class BossMonster extends DefiniteScalingBaseMonster {
     // Constructors
     BossMonster() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "The Final Boss";
+	return "The Final Boss";
     }
 }

@@ -11,22 +11,22 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class GreenWallOn extends GenericToggleWall {
     // Constructors
     public GreenWallOn() {
-        super(true, new TemplateTransform(0.0, 1.0, 0.0));
+	super(true, new TemplateTransform(0.0, 1.0, 0.0));
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Green Wall On";
+	return "Green Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "Green Walls On";
+	return "Green Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "Green Walls On can NOT be walked through, and will change to Green Walls Off when a Green Button is pressed.";
+	return "Green Walls On can NOT be walked through, and will change to Green Walls Off when a Green Button is pressed.";
     }
 }

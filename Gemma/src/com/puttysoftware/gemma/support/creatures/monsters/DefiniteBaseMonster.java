@@ -11,27 +11,27 @@ import com.puttysoftware.images.BufferedImageIcon;
 abstract class DefiniteBaseMonster extends BaseMonster {
     // Constructors
     DefiniteBaseMonster() {
-        super();
+	super();
     }
 
     @Override
     public boolean randomAppearance() {
-        return false;
+	return false;
     }
 
     @Override
     public boolean randomFaith() {
-        return false;
+	return false;
     }
 
     // Helper Methods
     @Override
     protected BufferedImageIcon getInitialImage() {
-        return ImageManager.getBossImage();
+	return ImageManager.getBossImage();
     }
 
     @Override
     public void loadMonster() {
-        this.image = this.getInitialImage();
+	this.image = this.getInitialImage();
     }
 }

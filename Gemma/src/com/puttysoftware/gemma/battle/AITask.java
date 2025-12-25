@@ -15,36 +15,36 @@ class AITask extends Thread {
 
     // Constructors
     AITask(BattleLogic battle) {
-        this.setName("AI Runner");
-        this.b = battle;
-        this.done = false;
+	this.setName("AI Runner");
+	this.b = battle;
+	this.done = false;
     }
 
     @Override
     public void run() {
-        try {
-            while (!this.done && this.b.isWaitingForAI()) {
-                this.b.executeNextAIAction();
-                if (this.b.getLastAIActionResult()) {
-                    // Delay, for animation purposes
-                    try {
-                        int battleSpeed = PreferencesManager.getBattleSpeed();
-                        Thread.sleep(battleSpeed);
-                    } catch (InterruptedException i) {
-                        // Ignore
-                    }
-                    if (this.b.getTerminatedEarly()) {
-                        // Bail out of here
-                        return;
-                    }
-                }
-            }
-        } catch (Throwable t) {
-            Gemma.getErrorLogger().logError(t);
-        }
+	try {
+	    while (!this.done && this.b.isWaitingForAI()) {
+		this.b.executeNextAIAction();
+		if (this.b.getLastAIActionResult()) {
+		    // Delay, for animation purposes
+		    try {
+			int battleSpeed = PreferencesManager.getBattleSpeed();
+			Thread.sleep(battleSpeed);
+		    } catch (InterruptedException i) {
+			// Ignore
+		    }
+		    if (this.b.getTerminatedEarly()) {
+			// Bail out of here
+			return;
+		    }
+		}
+	    }
+	} catch (Throwable t) {
+	    Gemma.getErrorLogger().logError(t);
+	}
     }
 
     void turnOver() {
-        this.done = true;
+	this.done = true;
     }
 }

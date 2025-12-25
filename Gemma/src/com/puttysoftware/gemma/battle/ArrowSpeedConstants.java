@@ -13,12 +13,11 @@ class ArrowSpeedConstants {
 
     // Constructor
     private ArrowSpeedConstants() {
-        // Do nothing
+	// Do nothing
     }
 
     // Method
     static int getArrowSpeed() {
-        return PreferencesManager.getBattleSpeed()
-                / ArrowSpeedConstants.ARROW_SPEED_FACTOR;
+	return PreferencesManager.getBattleSpeed() / ArrowSpeedConstants.ARROW_SPEED_FACTOR;
     }
 }

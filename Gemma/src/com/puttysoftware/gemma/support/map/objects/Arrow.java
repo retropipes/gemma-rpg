@@ -12,6 +12,6 @@ import com.puttysoftware.gemma.support.map.generic.GenericTransientObject;
 public class Arrow extends GenericTransientObject {
     // Constructors
     public Arrow(Color c) {
-        super("Arrow", c);
+	super("Arrow", c);
     }
 }

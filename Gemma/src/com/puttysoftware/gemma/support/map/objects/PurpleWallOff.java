@@ -11,22 +11,22 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class PurpleWallOff extends GenericToggleWall {
     // Constructors
     public PurpleWallOff() {
-        super(false, new TemplateTransform(0.25, 0.125, 0.5));
+	super(false, new TemplateTransform(0.25, 0.125, 0.5));
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Purple Wall Off";
+	return "Purple Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Purple Walls Off";
+	return "Purple Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Purple Walls Off can be walked through, and will change to Purple Walls On when a Purple Button is pressed.";
+	return "Purple Walls Off can be walked through, and will change to Purple Walls On when a Purple Button is pressed.";
     }
 }

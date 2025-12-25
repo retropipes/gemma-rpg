@@ -16,46 +16,46 @@ public class Extension {
 
     // Methods
     public static String getPreferencesExtension() {
-        return Extension.PREFERENCES_EXTENSION;
+	return Extension.PREFERENCES_EXTENSION;
     }
 
     public static String getRegistryExtensionWithPeriod() {
-        return "." + Extension.REGISTRY_EXTENSION;
+	return "." + Extension.REGISTRY_EXTENSION;
     }
 
     static String getScenarioExtensionWithPeriod() {
-        return "." + Extension.SCENARIO_EXTENSION;
+	return "." + Extension.SCENARIO_EXTENSION;
     }
 
     public static String getGameExtension() {
-        return Extension.SAVED_GAME_EXTENSION;
+	return Extension.SAVED_GAME_EXTENSION;
     }
 
     public static String getGameExtensionWithPeriod() {
-        return "." + Extension.SAVED_GAME_EXTENSION;
+	return "." + Extension.SAVED_GAME_EXTENSION;
     }
 
     public static String getCharacterExtension() {
-        return Extension.CHARACTER_EXTENSION;
+	return Extension.CHARACTER_EXTENSION;
     }
 
     public static String getCharacterExtensionWithPeriod() {
-        return "." + Extension.CHARACTER_EXTENSION;
+	return "." + Extension.CHARACTER_EXTENSION;
     }
 
     public static String getRaceExtensionWithPeriod() {
-        return "." + Extension.INTERNAL_DATA_EXTENSION;
+	return "." + Extension.INTERNAL_DATA_EXTENSION;
     }
 
     public static String getPersonalityExtensionWithPeriod() {
-        return "." + Extension.INTERNAL_DATA_EXTENSION;
+	return "." + Extension.INTERNAL_DATA_EXTENSION;
     }
 
     public static String getFaithExtensionWithPeriod() {
-        return "." + Extension.INTERNAL_DATA_EXTENSION;
+	return "." + Extension.INTERNAL_DATA_EXTENSION;
     }
 
     public static String getDescriptionExtensionWithPeriod() {
-        return "." + Extension.INTERNAL_DATA_EXTENSION;
+	return "." + Extension.INTERNAL_DATA_EXTENSION;
     }
 }

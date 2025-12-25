@@ -11,22 +11,22 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class CyanWallOff extends GenericToggleWall {
     // Constructors
     public CyanWallOff() {
-        super(false, new TemplateTransform(0.0, 1.0, 1.0));
+	super(false, new TemplateTransform(0.0, 1.0, 1.0));
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Cyan Wall Off";
+	return "Cyan Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Cyan Walls Off";
+	return "Cyan Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Cyan Walls Off can be walked through, and will change to Cyan Walls On when a Cyan Button is pressed.";
+	return "Cyan Walls Off can be walked through, and will change to Cyan Walls On when a Cyan Button is pressed.";
     }
 }

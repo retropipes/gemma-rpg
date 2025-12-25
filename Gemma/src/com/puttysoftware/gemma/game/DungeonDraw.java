@@ -18,28 +18,27 @@ class DungeonDraw extends JPanel {
     private DrawGrid drawGrid;
 
     public DungeonDraw() {
-        super();
-        int vSize = GameViewingWindowManager.getViewingWindowSize();
-        int gSize = ImageManager.getGraphicSize();
-        this.setPreferredSize(new Dimension(vSize * gSize, vSize * gSize));
+	super();
+	int vSize = GameViewingWindowManager.getViewingWindowSize();
+	int gSize = ImageManager.getGraphicSize();
+	this.setPreferredSize(new Dimension(vSize * gSize, vSize * gSize));
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (this.drawGrid != null) {
-            int gSize = ImageManager.getGraphicSize();
-            int vSize = GameViewingWindowManager.getViewingWindowSize();
-            for (int x = 0; x < vSize; x++) {
-                for (int y = 0; y < vSize; y++) {
-                    g.drawImage(this.drawGrid.getImageCell(y, x), x * gSize,
-                            y * gSize, gSize, gSize, null);
-                }
-            }
-        }
+	super.paintComponent(g);
+	if (this.drawGrid != null) {
+	    int gSize = ImageManager.getGraphicSize();
+	    int vSize = GameViewingWindowManager.getViewingWindowSize();
+	    for (int x = 0; x < vSize; x++) {
+		for (int y = 0; y < vSize; y++) {
+		    g.drawImage(this.drawGrid.getImageCell(y, x), x * gSize, y * gSize, gSize, gSize, null);
+		}
+	    }
+	}
     }
 
     public void updateGrid(DrawGrid newGrid) {
-        this.drawGrid = newGrid;
+	this.drawGrid = newGrid;
     }
 }

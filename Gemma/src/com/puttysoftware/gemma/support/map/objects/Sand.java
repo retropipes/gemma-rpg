@@ -11,32 +11,32 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class Sand extends GenericGround {
     // Constructors
     public Sand() {
-        super();
-        this.setTemplateTransform(new TemplateTransform(1.0, 0.8, 0.6));
+	super();
+	this.setTemplateTransform(new TemplateTransform(1.0, 0.8, 0.6));
     }
 
     @Override
     public String getName() {
-        return "Sand";
+	return "Sand";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Sand";
+	return "Squares of Sand";
     }
 
     @Override
     public String getDescription() {
-        return "Sand is one of the many types of ground.";
+	return "Sand is one of the many types of ground.";
     }
 
     @Override
     public String getGameImageNameHook() {
-        return "textured";
+	return "textured";
     }
 
     @Override
     public String getEditorImageNameHook() {
-        return "textured";
+	return "textured";
     }
 }

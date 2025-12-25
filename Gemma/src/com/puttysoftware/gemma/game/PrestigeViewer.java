@@ -34,59 +34,56 @@ public class PrestigeViewer {
 
     // Private Constructor
     private PrestigeViewer() {
-        // Do nothing
+	// Do nothing
     }
 
     // Methods
     public static void viewPrestige() {
-        setUpGUI();
-        PartyMember leader = PartyManager.getParty().getLeader();
-        if (leader != null) {
-            long prestigeScore = leader.computePrestige();
-            for (int x = 0; x < PrestigeConstants.MAX_PRESTIGE; x++) {
-                long value = leader.getPrestigeValue(x);
-                prestigeValues[x].setForeground(Creature.getPrestigeColor(x));
-                prestigeValues[x].setText(
-                        PrestigeConstants.PRESTIGE_NAMES[x] + ": " + value);
-            }
-            prestigeValues[PrestigeConstants.MAX_PRESTIGE]
-                    .setText("Overall Prestige: " + prestigeScore);
-            prestigeFrame.pack();
-            prestigeFrame.setVisible(true);
-        }
+	setUpGUI();
+	PartyMember leader = PartyManager.getParty().getLeader();
+	if (leader != null) {
+	    long prestigeScore = leader.computePrestige();
+	    for (int x = 0; x < PrestigeConstants.MAX_PRESTIGE; x++) {
+		long value = leader.getPrestigeValue(x);
+		prestigeValues[x].setForeground(Creature.getPrestigeColor(x));
+		prestigeValues[x].setText(PrestigeConstants.PRESTIGE_NAMES[x] + ": " + value);
+	    }
+	    prestigeValues[PrestigeConstants.MAX_PRESTIGE].setText("Overall Prestige: " + prestigeScore);
+	    prestigeFrame.pack();
+	    prestigeFrame.setVisible(true);
+	}
     }
 
     private static void setUpGUI() {
-        if (!inited) {
-            if (Support.inDebugMode()) {
-                prestigeFrame = new JFrame("Prestige (DEBUG)");
-            } else {
-                prestigeFrame = new JFrame("Prestige");
-            }
-            prestigePane = new JPanel();
-            prestigePane.setLayout(new BorderLayout());
-            contentPane = new JPanel();
-            contentPane.setLayout(
-                    new GridLayout(PrestigeConstants.MAX_PRESTIGE + 1, 1));
-            buttonPane = new JPanel();
-            buttonPane.setLayout(new FlowLayout());
-            btnOK = new JButton("OK");
-            btnOK.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    prestigeFrame.setVisible(false);
-                }
-            });
-            prestigeValues = new JLabel[PrestigeConstants.MAX_PRESTIGE + 1];
-            for (int x = 0; x < PrestigeConstants.MAX_PRESTIGE + 1; x++) {
-                prestigeValues[x] = new JLabel();
-                contentPane.add(prestigeValues[x]);
-            }
-            buttonPane.add(btnOK);
-            prestigePane.add(contentPane, BorderLayout.CENTER);
-            prestigePane.add(buttonPane, BorderLayout.SOUTH);
-            prestigeFrame.setContentPane(prestigePane);
-            inited = true;
-        }
+	if (!inited) {
+	    if (Support.inDebugMode()) {
+		prestigeFrame = new JFrame("Prestige (DEBUG)");
+	    } else {
+		prestigeFrame = new JFrame("Prestige");
+	    }
+	    prestigePane = new JPanel();
+	    prestigePane.setLayout(new BorderLayout());
+	    contentPane = new JPanel();
+	    contentPane.setLayout(new GridLayout(PrestigeConstants.MAX_PRESTIGE + 1, 1));
+	    buttonPane = new JPanel();
+	    buttonPane.setLayout(new FlowLayout());
+	    btnOK = new JButton("OK");
+	    btnOK.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		    prestigeFrame.setVisible(false);
+		}
+	    });
+	    prestigeValues = new JLabel[PrestigeConstants.MAX_PRESTIGE + 1];
+	    for (int x = 0; x < PrestigeConstants.MAX_PRESTIGE + 1; x++) {
+		prestigeValues[x] = new JLabel();
+		contentPane.add(prestigeValues[x]);
+	    }
+	    buttonPane.add(btnOK);
+	    prestigePane.add(contentPane, BorderLayout.CENTER);
+	    prestigePane.add(buttonPane, BorderLayout.SOUTH);
+	    prestigeFrame.setContentPane(prestigePane);
+	    inited = true;
+	}
     }
 }

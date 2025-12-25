@@ -11,28 +11,28 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 public class ClosedDoor extends GenericPassThroughObject {
     // Constructors
     public ClosedDoor() {
-        super();
-        this.setTemplateTransform(new TemplateTransform(0.8, 0.6, 0.4));
+	super();
+	this.setTemplateTransform(new TemplateTransform(0.8, 0.6, 0.4));
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Closed Door";
+	return "Closed Door";
     }
 
     @Override
     public String getPluralName() {
-        return "Closed Doors";
+	return "Closed Doors";
     }
 
     @Override
     public String getDescription() {
-        return "Closed Doors are purely decorative.";
+	return "Closed Doors are purely decorative.";
     }
 
     @Override
     public boolean enabledInBattle() {
-        return false;
+	return false;
     }
 }

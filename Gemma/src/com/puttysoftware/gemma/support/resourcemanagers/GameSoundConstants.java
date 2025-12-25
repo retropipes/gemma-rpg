@@ -47,6 +47,6 @@ public class GameSoundConstants {
 
     // Private constructor
     private GameSoundConstants() {
-        // Do nothing
+	// Do nothing
     }
 }

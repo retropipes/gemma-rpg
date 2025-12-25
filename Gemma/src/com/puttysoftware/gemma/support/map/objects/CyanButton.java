@@ -10,22 +10,21 @@ import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 
 public class CyanButton extends GenericButton {
     public CyanButton() {
-        super(new CyanWallOff(), new CyanWallOn(),
-                new TemplateTransform(0.0, 1.0, 1.0));
+	super(new CyanWallOff(), new CyanWallOn(), new TemplateTransform(0.0, 1.0, 1.0));
     }
 
     @Override
     public String getName() {
-        return "Cyan Button";
+	return "Cyan Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Cyan Buttons";
+	return "Cyan Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Cyan Buttons will cause all Cyan Walls Off to become On, and all Cyan Walls On to become Off.";
+	return "Cyan Buttons will cause all Cyan Walls Off to become On, and all Cyan Walls On to become Off.";
     }
 }
