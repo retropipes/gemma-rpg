@@ -20,4 +20,7 @@ module com.puttysoftware.gemma {
     requires org.retropipes.diane.random;
     requires org.retropipes.diane.storage;
     requires org.retropipes.diane.update;
+
+    uses javax.sound.sampled.spi.AudioFileReader;
+    uses javax.sound.sampled.spi.FormatConversionProvider;
 }
