@@ -10,12 +10,13 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+
 import com.puttysoftware.gemma.support.creatures.PartyMember;
 import com.puttysoftware.gemma.support.creatures.monsters.Element;
 import com.puttysoftware.gemma.support.creatures.races.RaceConstants;
 import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
 import com.puttysoftware.gemma.support.resourcemodifiers.ImageTransformer;
-import com.puttysoftware.images.BufferedImageIcon;
 
 public class ImageManager {
     private static final String INTERNAL_LOAD_PATH = "/com/puttysoftware/gemma/support/resources/graphics/";

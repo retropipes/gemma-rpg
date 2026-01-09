@@ -8,14 +8,15 @@ package com.puttysoftware.gemma.support.creatures;
 import java.awt.Color;
 import java.util.Arrays;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.polytable.PolyTable;
+
 import com.puttysoftware.gemma.support.ai.AIRoutine;
 import com.puttysoftware.gemma.support.creatures.faiths.Faith;
 import com.puttysoftware.gemma.support.effects.Effect;
 import com.puttysoftware.gemma.support.items.ItemInventory;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScript;
 import com.puttysoftware.gemma.support.spells.SpellBook;
-import com.puttysoftware.images.BufferedImageIcon;
-import com.puttysoftware.page.Page;
 
 public abstract class Creature {
     // Fields
@@ -27,7 +28,7 @@ public abstract class Creature {
     private SpellBook spellsKnown;
     private AIRoutine ai;
     private ItemInventory items;
-    private Page toNextLevel;
+    private PolyTable toNextLevel;
     private int teamID;
     private int xLoc, yLoc;
     private int saveX, saveY;
@@ -932,7 +933,7 @@ public abstract class Creature {
 	this.setStat(StatConstants.STAT_STRENGTH, value);
     }
 
-    final void setToNextLevel(Page nextLevelEquation) {
+    final void setToNextLevel(PolyTable nextLevelEquation) {
 	this.toNextLevel = nextLevelEquation;
     }
 

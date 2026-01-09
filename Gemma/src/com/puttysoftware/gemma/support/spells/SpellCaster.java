@@ -5,7 +5,8 @@
  */
 package com.puttysoftware.gemma.support.spells;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.support.battle.BattleDefinitions;
 import com.puttysoftware.gemma.support.creatures.BattleTarget;
 import com.puttysoftware.gemma.support.creatures.Creature;

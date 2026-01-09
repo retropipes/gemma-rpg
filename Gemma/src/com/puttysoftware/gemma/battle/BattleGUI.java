@@ -16,8 +16,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
-import com.puttysoftware.gemma.DrawGrid;
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.drawgrid.DrawGrid;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.prefs.PreferencesManager;
 import com.puttysoftware.gemma.support.Support;
@@ -27,7 +29,6 @@ import com.puttysoftware.gemma.support.resourcemanagers.ImageManager;
 import com.puttysoftware.gemma.support.resourcemanagers.MusicConstants;
 import com.puttysoftware.gemma.support.resourcemanagers.MusicManager;
 import com.puttysoftware.gemma.support.resourcemodifiers.ImageTransformer;
-import com.puttysoftware.images.BufferedImageIcon;
 
 class BattleGUI {
     // Fields
@@ -292,7 +293,7 @@ class BattleGUI {
 		    }
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
 
@@ -362,7 +363,7 @@ class BattleGUI {
 		    }
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
     }

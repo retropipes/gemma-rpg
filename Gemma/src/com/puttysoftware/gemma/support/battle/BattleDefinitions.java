@@ -5,13 +5,14 @@
  */
 package com.puttysoftware.gemma.support.battle;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.support.ai.AIContext;
 import com.puttysoftware.gemma.support.creatures.Creature;
 import com.puttysoftware.gemma.support.creatures.PrestigeConstants;
 import com.puttysoftware.gemma.support.map.Map;
 import com.puttysoftware.gemma.support.map.objects.BattleCharacter;
-import com.puttysoftware.randomrange.RandomRange;
 
 public class BattleDefinitions {
     // Fields

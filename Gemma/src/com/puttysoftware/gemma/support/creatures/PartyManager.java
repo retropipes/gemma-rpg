@@ -11,7 +11,10 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.support.creatures.characterfiles.CharacterLoader;
 import com.puttysoftware.gemma.support.creatures.characterfiles.CharacterRegistration;
 import com.puttysoftware.gemma.support.creatures.faiths.Faith;
@@ -22,8 +25,6 @@ import com.puttysoftware.gemma.support.creatures.personalities.Personality;
 import com.puttysoftware.gemma.support.creatures.personalities.PersonalityManager;
 import com.puttysoftware.gemma.support.creatures.races.Race;
 import com.puttysoftware.gemma.support.creatures.races.RaceManager;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 public class PartyManager {
     // Fields
@@ -55,7 +56,7 @@ public class PartyManager {
 		    CharacterLoader.saveCharacter(pc);
 		}
 	    } else {
-		int response = CommonDialogs.showCustomDialog("Pick, Create, or Done?", "Create Party", buttonNames,
+		int response = CommonDialogs.showCustomDialogWithDefault("Pick, Create, or Done?", "Create Party", buttonNames,
 			buttonNames[2]);
 		if (response == 2) {
 		    pc = pickParty.pickOnePartyMemberCreate();

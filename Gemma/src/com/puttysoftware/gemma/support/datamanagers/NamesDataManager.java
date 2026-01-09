@@ -11,7 +11,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.puttysoftware.fileutils.ResourceStreamReader;
+import org.retropipes.diane.fileio.utility.ResourceStreamReader;
+
 import com.puttysoftware.gemma.support.Support;
 import com.puttysoftware.gemma.support.names.NamesConstants;
 
@@ -47,7 +48,7 @@ public class NamesDataManager {
 		}
 	    }
 	} catch (final Exception e) {
-	    Support.getErrorLogger().logError(e);
+	    Support.logError(e);
 	    return null;
 	}
     }
@@ -91,7 +92,7 @@ public class NamesDataManager {
 		}
 	    }
 	} catch (final Exception e) {
-	    Support.getErrorLogger().logError(e);
+	    Support.logError(e);
 	}
     }
 

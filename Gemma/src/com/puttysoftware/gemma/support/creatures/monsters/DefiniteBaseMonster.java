@@ -5,8 +5,9 @@
  */
 package com.puttysoftware.gemma.support.creatures.monsters;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+
 import com.puttysoftware.gemma.support.resourcemanagers.ImageManager;
-import com.puttysoftware.images.BufferedImageIcon;
 
 abstract class DefiniteBaseMonster extends BaseMonster {
     // Constructors

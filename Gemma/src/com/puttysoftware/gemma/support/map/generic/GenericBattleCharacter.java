@@ -6,10 +6,11 @@
  */
 package com.puttysoftware.gemma.support.map.generic;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+
 import com.puttysoftware.gemma.support.creatures.Creature;
 import com.puttysoftware.gemma.support.map.MapConstants;
 import com.puttysoftware.gemma.support.map.objects.Empty;
-import com.puttysoftware.images.BufferedImageIcon;
 
 public abstract class GenericBattleCharacter extends MapObject {
     // Fields

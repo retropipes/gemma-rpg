@@ -9,8 +9,9 @@ import java.awt.Color;
 
 import javax.swing.UIManager;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+
 import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
-import com.puttysoftware.images.BufferedImageIcon;
 
 public class ImageTransformer {
     private static final Color TRANSPARENT = new Color(200, 100, 100);

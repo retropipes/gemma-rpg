@@ -8,8 +8,9 @@ package com.puttysoftware.gemma.scenario;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
-import com.puttysoftware.fileutils.ZipUtilities;
+import org.retropipes.diane.fileio.utility.ZipUtilities;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Application;
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.support.Support;
@@ -46,7 +47,7 @@ class SaveTask extends Thread {
 	    CommonDialogs.showDialog("Writing the " + sg.toLowerCase()
 		    + " file failed, probably due to illegal characters in the file name.");
 	} catch (final Exception ex) {
-	    Gemma.getErrorLogger().logError(ex);
+	    Gemma.logError(ex);
 	}
 	Gemma.getApplication().showMessage(sg + " file saved.");
 	app.getScenarioManager().handleDeferredSuccess();

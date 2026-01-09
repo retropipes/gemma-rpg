@@ -7,6 +7,11 @@ package com.puttysoftware.gemma.support.creatures;
 
 import java.io.IOException;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+import org.retropipes.diane.polytable.PolyTable;
+
 import com.puttysoftware.gemma.support.creatures.faiths.Faith;
 import com.puttysoftware.gemma.support.creatures.genders.Gender;
 import com.puttysoftware.gemma.support.creatures.monsters.Element;
@@ -21,10 +26,6 @@ import com.puttysoftware.gemma.support.scripts.internal.InternalScriptActionCode
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntry;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntryArgument;
 import com.puttysoftware.gemma.support.spells.SpellBook;
-import com.puttysoftware.images.BufferedImageIcon;
-import com.puttysoftware.page.Page;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 public class PartyMember extends Creature {
     // Fields
@@ -60,7 +61,7 @@ public class PartyMember extends Creature {
 	this.healAndRegenerateFully();
 	this.setGold(PartyMember.START_GOLD);
 	this.setExperience(0L);
-	Page nextLevelEquation = new Page(3, 1, 0, true);
+	PolyTable nextLevelEquation = new PolyTable(3, 1, 0, true);
 	double value = BASE_COEFF
 		* this.personality.getAttribute(PersonalityConstants.PERSONALITY_ATTRIBUTE_LEVEL_UP_SPEED);
 	nextLevelEquation.setCoefficient(1, value);

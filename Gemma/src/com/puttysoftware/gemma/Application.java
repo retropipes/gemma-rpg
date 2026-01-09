@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.battle.BattleLogic;
 import com.puttysoftware.gemma.game.GameLogic;
 import com.puttysoftware.gemma.namer.editor.NameEditor;
@@ -27,7 +29,6 @@ import com.puttysoftware.gemma.support.map.objects.Empty;
 import com.puttysoftware.gemma.support.map.objects.Tile;
 import com.puttysoftware.gemma.support.resourcemanagers.GameSoundConstants;
 import com.puttysoftware.gemma.support.resourcemanagers.SoundManager;
-import com.puttysoftware.images.BufferedImageIcon;
 
 public class Application {
     // Fields

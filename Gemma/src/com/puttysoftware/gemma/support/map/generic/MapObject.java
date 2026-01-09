@@ -9,6 +9,11 @@ import java.awt.Color;
 import java.io.IOException;
 import java.util.BitSet;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.support.Support;
 import com.puttysoftware.gemma.support.map.Map;
 import com.puttysoftware.gemma.support.map.MapConstants;
@@ -19,13 +24,8 @@ import com.puttysoftware.gemma.support.scripts.internal.InternalScript;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptActionCode;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntry;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntryArgument;
-import com.puttysoftware.images.BufferedImageIcon;
-import com.puttysoftware.llds.CloneableObject;
-import com.puttysoftware.randomrange.RandomRange;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
-public abstract class MapObject extends CloneableObject implements TypeConstants, RandomGenerationRule {
+public abstract class MapObject implements TypeConstants, RandomGenerationRule {
     // Properties
     private boolean solid;
     private boolean blocksLOS;
@@ -62,7 +62,7 @@ public abstract class MapObject extends CloneableObject implements TypeConstants
 	    copy.blocksLOS = this.blocksLOS;
 	    return copy;
 	} catch (CloneNotSupportedException e) {
-	    Support.getErrorLogger().logError(e);
+	    Support.logError(e);
 	    return null;
 	}
     }

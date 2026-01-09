@@ -5,6 +5,8 @@
  */
 package com.puttysoftware.gemma.game.scripts;
 
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.game.GameLogic;
 import com.puttysoftware.gemma.support.battle.Battle;
@@ -16,7 +18,6 @@ import com.puttysoftware.gemma.support.scripts.internal.InternalScript;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptActionCode;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptConstants;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntry;
-import com.puttysoftware.randomrange.RandomRange;
 
 public final class InternalScriptRunner {
     private InternalScriptRunner() {
@@ -133,7 +134,7 @@ public final class InternalScriptRunner {
 					    battle);
 				} catch (Exception e) {
 				    // Something went wrong in the battle
-				    Gemma.getErrorLogger().logError(e);
+				    Gemma.logError(e);
 				}
 			    }
 			}.start();
@@ -155,7 +156,7 @@ public final class InternalScriptRunner {
 	    String beginMsg = "Buggy Internal Script, action #" + actionCounter + ": ";
 	    String endMsg = e.getMessage();
 	    String scriptMsg = beginMsg + endMsg;
-	    Gemma.getNonFatalLogger().logNonFatalError(new InternalScriptException(scriptMsg, e));
+	    Gemma.logNonFatalError(new InternalScriptException(scriptMsg, e));
 	}
     }
 

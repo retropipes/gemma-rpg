@@ -7,9 +7,10 @@ package com.puttysoftware.gemma.support.items;
 
 import java.io.IOException;
 
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+
 import com.puttysoftware.gemma.support.creatures.faiths.FaithConstants;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 public class Equipment extends Item {
     // Properties

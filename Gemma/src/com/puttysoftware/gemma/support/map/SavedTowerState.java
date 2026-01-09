@@ -7,10 +7,11 @@ package com.puttysoftware.gemma.support.map;
 
 import java.io.IOException;
 
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+
 import com.puttysoftware.gemma.support.map.generic.MapObject;
 import com.puttysoftware.gemma.support.map.generic.MapObjectList;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 class SavedTowerState implements Cloneable {
     // Properties

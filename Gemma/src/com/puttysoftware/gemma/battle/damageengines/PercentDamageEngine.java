@@ -5,13 +5,14 @@
  */
 package com.puttysoftware.gemma.battle.damageengines;
 
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.support.creatures.Creature;
 import com.puttysoftware.gemma.support.creatures.StatConstants;
 import com.puttysoftware.gemma.support.creatures.faiths.FaithConstants;
 import com.puttysoftware.gemma.support.items.Equipment;
 import com.puttysoftware.gemma.support.items.EquipmentCategoryConstants;
 import com.puttysoftware.gemma.support.items.EquipmentSlotConstants;
-import com.puttysoftware.randomrange.RandomRange;
 
 class PercentDamageEngine extends DamageEngine {
     private static final double ABSORB = 1000.0;

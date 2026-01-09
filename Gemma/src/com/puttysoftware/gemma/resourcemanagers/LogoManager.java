@@ -12,7 +12,7 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-import com.puttysoftware.images.BufferedImageIcon;
+import org.retropipes.diane.asset.image.BufferedImageIcon;
 
 public class LogoManager {
     private static final String DEFAULT_LOAD_PATH = "/com/puttysoftware/gemma/resources/graphics/logo/";

@@ -7,7 +7,7 @@ package com.puttysoftware.gemma.support.scenario;
 
 import java.io.File;
 
-import com.puttysoftware.randomrange.RandomRange;
+import org.retropipes.diane.random.RandomRange;
 
 public class Scenario {
     // Properties

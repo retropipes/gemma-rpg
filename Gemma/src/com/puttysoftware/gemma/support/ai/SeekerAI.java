@@ -7,7 +7,7 @@ package com.puttysoftware.gemma.support.ai;
 
 import java.awt.Point;
 
-import com.puttysoftware.randomrange.RandomRange;
+import org.retropipes.diane.random.RandomRange;
 
 class SeekerAI extends AIRoutine {
     // Fields

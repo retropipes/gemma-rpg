@@ -40,7 +40,7 @@ class AITask extends Thread {
 		}
 	    }
 	} catch (Throwable t) {
-	    Gemma.getErrorLogger().logError(t);
+	    Gemma.logError(t);
 	}
     }
 

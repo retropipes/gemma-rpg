@@ -105,7 +105,7 @@ class ArrowTask extends Thread {
 	    }
 	    app.getBattle().arrowDone(hit);
 	} catch (Throwable t) {
-	    Gemma.getErrorLogger().logError(t);
+	    Gemma.logError(t);
 	}
     }
 

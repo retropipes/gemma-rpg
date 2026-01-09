@@ -12,8 +12,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
-import com.puttysoftware.fileutils.ResourceStreamReader;
+import org.retropipes.diane.fileio.utility.ResourceStreamReader;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.support.Support;
 import com.puttysoftware.gemma.support.scenario.Extension;
 

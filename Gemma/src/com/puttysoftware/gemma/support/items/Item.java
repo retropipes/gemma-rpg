@@ -7,8 +7,8 @@ package com.puttysoftware.gemma.support.items;
 
 import java.io.IOException;
 
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
 
 public class Item {
     // Properties

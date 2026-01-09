@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.battle.damageengines.DamageEngine;
 import com.puttysoftware.gemma.game.scripts.InternalScriptRunner;
@@ -40,7 +42,6 @@ import com.puttysoftware.gemma.support.resourcemanagers.SoundManager;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScript;
 import com.puttysoftware.gemma.support.spells.Spell;
 import com.puttysoftware.gemma.support.spells.SpellCaster;
-import com.puttysoftware.randomrange.RandomRange;
 
 public class BattleLogic {
     // Fields

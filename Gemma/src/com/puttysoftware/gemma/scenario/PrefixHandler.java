@@ -7,10 +7,11 @@ package com.puttysoftware.gemma.scenario;
 
 import java.io.IOException;
 
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+
 import com.puttysoftware.gemma.support.map.PrefixIO;
 import com.puttysoftware.gemma.support.scenario.FormatConstants;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 class PrefixHandler implements PrefixIO {
     private static final byte FORMAT_VERSION = (byte) FormatConstants.LATEST_SCENARIO_FORMAT;

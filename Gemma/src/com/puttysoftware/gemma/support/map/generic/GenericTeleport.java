@@ -5,6 +5,8 @@
  */
 package com.puttysoftware.gemma.support.map.generic;
 
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.support.Support;
 import com.puttysoftware.gemma.support.map.MapConstants;
 import com.puttysoftware.gemma.support.resourcemanagers.GameSoundConstants;
@@ -12,7 +14,6 @@ import com.puttysoftware.gemma.support.scripts.internal.InternalScript;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptActionCode;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntry;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntryArgument;
-import com.puttysoftware.randomrange.RandomRange;
 
 public abstract class GenericTeleport extends MapObject {
     // Fields

@@ -5,7 +5,7 @@
  */
 package com.puttysoftware.gemma.resourcemanagers;
 
-import com.puttysoftware.images.BufferedImageIcon;
+import org.retropipes.diane.asset.image.BufferedImageIcon;
 
 class LogoCache {
     // Fields

@@ -10,7 +10,8 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import com.puttysoftware.gemma.DrawGrid;
+import org.retropipes.diane.drawgrid.DrawGrid;
+
 import com.puttysoftware.gemma.support.resourcemanagers.ImageManager;
 
 class BattleDraw extends JPanel {

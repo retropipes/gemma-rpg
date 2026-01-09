@@ -18,7 +18,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Application;
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.namer.generic.GenericObjectEditor;
@@ -191,7 +192,7 @@ public class NameEditor extends GenericObjectEditor {
 		    break;
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
 

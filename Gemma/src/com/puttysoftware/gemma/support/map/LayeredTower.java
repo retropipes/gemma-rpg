@@ -10,7 +10,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.puttysoftware.gemma.support.Support;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+import org.retropipes.diane.random.RandomRange;
+import org.retropipes.diane.storage.FlagStorage;
+
 import com.puttysoftware.gemma.support.map.generic.MapObject;
 import com.puttysoftware.gemma.support.map.generic.MapObjectList;
 import com.puttysoftware.gemma.support.map.generic.RandomGenerationRule;
@@ -18,16 +22,12 @@ import com.puttysoftware.gemma.support.scripts.internal.InternalScriptActionCode
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptArea;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntry;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntryArgument;
-import com.puttysoftware.llds.LowLevelFlagDataStore;
-import com.puttysoftware.randomrange.RandomRange;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 class LayeredTower implements Cloneable {
     // Properties
     private LowLevelDataStore data;
     private SavedTowerState savedTowerState;
-    private final LowLevelFlagDataStore visionData;
+    private final FlagStorage visionData;
     private LowLevelNoteDataStore noteData;
     private final int[] playerLocationData;
     private final int[] savedPlayerLocationData;
@@ -47,7 +47,7 @@ class LayeredTower implements Cloneable {
 	this.data = new LowLevelDataStore(cols, rows, floors, MapConstants.LAYER_COUNT);
 	this.noteData = new LowLevelNoteDataStore(cols, rows, floors);
 	this.savedTowerState = new SavedTowerState(rows, cols, floors);
-	this.visionData = new LowLevelFlagDataStore(cols, rows, floors);
+	this.visionData = new FlagStorage(cols, rows, floors);
 	this.playerStartData = new int[3];
 	Arrays.fill(this.playerStartData, -1);
 	this.playerLocationData = new int[3];
@@ -70,24 +70,19 @@ class LayeredTower implements Cloneable {
     // Methods
     @Override
     public LayeredTower clone() {
-	try {
-	    LayeredTower copy = new LayeredTower(this.getRows(), this.getColumns(), this.getFloors());
-	    copy.data = (LowLevelDataStore) this.data.clone();
-	    copy.savedTowerState = this.savedTowerState.clone();
-	    System.arraycopy(this.playerStartData, 0, copy.playerStartData, 0, this.playerStartData.length);
-	    System.arraycopy(this.findResult, 0, copy.findResult, 0, this.findResult.length);
-	    copy.horizontalWraparoundEnabled = this.horizontalWraparoundEnabled;
-	    copy.verticalWraparoundEnabled = this.verticalWraparoundEnabled;
-	    copy.thirdDimensionWraparoundEnabled = this.thirdDimensionWraparoundEnabled;
-	    if (this.noteData != null) {
-		copy.noteData = (LowLevelNoteDataStore) this.noteData.clone();
-	    }
-	    copy.regionSize = this.regionSize;
-	    return copy;
-	} catch (CloneNotSupportedException cnse) {
-	    Support.getErrorLogger().logError(cnse);
-	    return null;
+	LayeredTower copy = new LayeredTower(this.getRows(), this.getColumns(), this.getFloors());
+	copy.data = new LowLevelDataStore(this.data);
+	copy.savedTowerState = this.savedTowerState.clone();
+	System.arraycopy(this.playerStartData, 0, copy.playerStartData, 0, this.playerStartData.length);
+	System.arraycopy(this.findResult, 0, copy.findResult, 0, this.findResult.length);
+	copy.horizontalWraparoundEnabled = this.horizontalWraparoundEnabled;
+	copy.verticalWraparoundEnabled = this.verticalWraparoundEnabled;
+	copy.thirdDimensionWraparoundEnabled = this.thirdDimensionWraparoundEnabled;
+	if (this.noteData != null) {
+	    copy.noteData = new LowLevelNoteDataStore(this.noteData);
 	}
+	copy.regionSize = this.regionSize;
+	return copy;
     }
 
     public final void rebuildGSA(int mod) {

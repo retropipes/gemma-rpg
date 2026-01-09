@@ -13,8 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 import javax.swing.WindowConstants;
 
-import com.puttysoftware.fileutils.ZipUtilities;
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.fileio.utility.ZipUtilities;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Application;
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.resourcemanagers.LogoManager;
@@ -84,7 +85,7 @@ class LoadTask extends Thread {
 	    CommonDialogs.showDialog("Loading the " + sg.toLowerCase() + " file failed!");
 	    app.getScenarioManager().handleDeferredSuccess();
 	} catch (final Exception ex) {
-	    Gemma.getErrorLogger().logError(ex);
+	    Gemma.logError(ex);
 	} finally {
 	    this.loadFrame.setVisible(false);
 	}

@@ -8,6 +8,9 @@ package com.puttysoftware.gemma;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.desktop.QuitEvent;
+import java.awt.desktop.QuitHandler;
+import java.awt.desktop.QuitResponse;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
@@ -19,14 +22,15 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import com.puttysoftware.fileutils.DirectoryUtilities;
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.fileio.utility.DirectoryUtilities;
+
 import com.puttysoftware.gemma.prefs.PreferencesManager;
 import com.puttysoftware.gemma.resourcemanagers.LogoManager;
 import com.puttysoftware.gemma.scenario.ScenarioManager;
 import com.puttysoftware.gemma.support.Support;
-import com.puttysoftware.images.BufferedImageIcon;
 
-public class GUIManager {
+public class GUIManager implements QuitHandler {
     // Fields
     private final JFrame guiFrame;
     private final JLabel logoLabel;
@@ -146,6 +150,15 @@ public class GUIManager {
 	@Override
 	public void windowOpened(WindowEvent arg0) {
 	    // Do nothing
+	}
+    }
+
+    @Override
+    public void handleQuitRequestWith(QuitEvent e, QuitResponse response) {
+	if (this.quitHandler()) {
+	    response.performQuit();
+	} else {
+	    response.cancelQuit();
 	}
     }
 }

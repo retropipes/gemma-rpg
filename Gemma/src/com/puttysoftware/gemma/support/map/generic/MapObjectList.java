@@ -8,6 +8,9 @@ package com.puttysoftware.gemma.support.map.generic;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.fileio.XDataReader;
+
 import com.puttysoftware.gemma.support.map.MapConstants;
 import com.puttysoftware.gemma.support.map.objects.ArmorShop;
 import com.puttysoftware.gemma.support.map.objects.BlueButton;
@@ -73,8 +76,6 @@ import com.puttysoftware.gemma.support.map.objects.YellowWallOff;
 import com.puttysoftware.gemma.support.map.objects.YellowWallOn;
 import com.puttysoftware.gemma.support.resourcemanagers.ImageManager;
 import com.puttysoftware.gemma.support.scenario.FormatConstants;
-import com.puttysoftware.images.BufferedImageIcon;
-import com.puttysoftware.xio.XDataReader;
 
 public class MapObjectList {
     // Fields

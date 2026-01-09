@@ -10,6 +10,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.retropipes.diane.fileio.DataIOFactory;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.support.Support;
 import com.puttysoftware.gemma.support.map.generic.MapObject;
 import com.puttysoftware.gemma.support.map.generic.MapObjectList;
@@ -17,9 +22,6 @@ import com.puttysoftware.gemma.support.map.objects.Empty;
 import com.puttysoftware.gemma.support.prefs.LocalPreferencesManager;
 import com.puttysoftware.gemma.support.scenario.FormatConstants;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptArea;
-import com.puttysoftware.randomrange.RandomRange;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 public class Map implements MapConstants {
     // Properties
@@ -330,7 +332,7 @@ public class Map implements MapConstants {
 	m.setXSuffixHandler(this.xmlSuffixHandler);
 	int version = 0;
 	// Create metafile reader
-	try (XDataReader metaReader = new XDataReader(this.mapBasePath + File.separator + "metafile.xml", "map")) {
+	try (XDataReader metaReader = DataIOFactory.createTagReader(this.mapBasePath + File.separator + "metafile.xml", "map")) {
 	    // Read metafile
 	    version = m.readMapMetafileX(metaReader);
 	} catch (IOException ioe) {
@@ -347,7 +349,7 @@ public class Map implements MapConstants {
     }
 
     private XDataReader getLevelReaderX() throws IOException {
-	return new XDataReader(this.mapBasePath + File.separator + "level" + this.activeLevel + ".xml", "level");
+	return DataIOFactory.createTagReader(this.mapBasePath + File.separator + "level" + this.activeLevel + ".xml", "level");
     }
 
     private int readMapMetafileX(XDataReader reader) throws IOException {
@@ -382,7 +384,7 @@ public class Map implements MapConstants {
 
     public void writeMapX() throws IOException {
 	// Create metafile writer
-	try (XDataWriter metaWriter = new XDataWriter(this.mapBasePath + File.separator + "metafile.xml", "map")) {
+	try (XDataWriter metaWriter = DataIOFactory.createTagWriter(this.mapBasePath + File.separator + "metafile.xml", "map")) {
 	    // Write metafile
 	    this.writeMapMetafileX(metaWriter);
 	} catch (IOException ioe) {
@@ -398,7 +400,7 @@ public class Map implements MapConstants {
     }
 
     private XDataWriter getLevelWriterX() throws IOException {
-	return new XDataWriter(this.mapBasePath + File.separator + "level" + this.activeLevel + ".xml", "level");
+	return DataIOFactory.createTagWriter(this.mapBasePath + File.separator + "level" + this.activeLevel + ".xml", "level");
     }
 
     private void writeMapMetafileX(XDataWriter writer) throws IOException {

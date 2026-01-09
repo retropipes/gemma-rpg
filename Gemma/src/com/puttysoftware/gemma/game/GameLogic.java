@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Application;
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.game.scripts.InternalScriptRunner;

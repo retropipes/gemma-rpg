@@ -20,8 +20,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
+import org.retropipes.diane.drawgrid.DrawGrid;
+
 import com.puttysoftware.gemma.Application;
-import com.puttysoftware.gemma.DrawGrid;
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.prefs.PreferencesManager;
 import com.puttysoftware.gemma.scenario.ScenarioManager;
@@ -296,7 +297,7 @@ class GameGUI {
 		    break;
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
 
@@ -331,7 +332,7 @@ class GameGUI {
 		    app.getGameManager().exitGame();
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
 
@@ -376,7 +377,7 @@ class GameGUI {
 		    gm.identifyObject(x, y);
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
 

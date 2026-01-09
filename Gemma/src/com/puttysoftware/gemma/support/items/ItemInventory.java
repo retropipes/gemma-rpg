@@ -10,13 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+
 import com.puttysoftware.gemma.support.creatures.Creature;
 import com.puttysoftware.gemma.support.creatures.StatConstants;
 import com.puttysoftware.gemma.support.items.combat.CombatItemList;
 import com.puttysoftware.gemma.support.resourcemanagers.GameSoundConstants;
 import com.puttysoftware.gemma.support.resourcemanagers.SoundManager;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 public class ItemInventory {
     // Properties

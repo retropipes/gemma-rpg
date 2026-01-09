@@ -7,8 +7,9 @@ package com.puttysoftware.gemma.support.creatures.faiths;
 
 import javax.swing.JFrame;
 
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.support.creatures.PartyManager;
-import com.puttysoftware.randomrange.RandomRange;
 
 public class FaithManager {
     private static boolean CACHE_CREATED = false;

@@ -5,7 +5,7 @@
  */
 package com.puttysoftware.gemma.support.creatures.genders;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
 
 public class GenderManager implements GenderConstants {
     private static boolean CACHE_CREATED = false;

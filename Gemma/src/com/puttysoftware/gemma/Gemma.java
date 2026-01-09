@@ -5,12 +5,13 @@
  */
 package com.puttysoftware.gemma;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
-import com.puttysoftware.errorlogger.ErrorLogger;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.integration.Integration;
+
+import com.puttysoftware.gemma.prefs.PreferencesLauncher;
 import com.puttysoftware.gemma.resourcemanagers.LogoManager;
 import com.puttysoftware.gemma.support.Support;
 import com.puttysoftware.gemma.support.creatures.PartyManager;
-import com.puttysoftware.integration.NativeIntegration;
 
 public class Gemma {
     // Constants
@@ -23,12 +24,12 @@ public class Gemma {
 	return Gemma.application;
     }
 
-    public static ErrorLogger getErrorLogger() {
-	return Support.getErrorLogger();
+    public static void logError(final Throwable t) {
+	Support.logError(t);
     }
 
-    public static ErrorLogger getNonFatalLogger() {
-	return Support.getNonFatalLogger();
+    public static void logNonFatalError(final Throwable t) {
+	Support.logNonFatalError(t);
     }
 
     public static String getProgramName() {
@@ -54,7 +55,7 @@ public class Gemma {
 	    } else {
 		suffix = "";
 	    }
-	    NativeIntegration ni = new NativeIntegration();
+	    Integration ni = Integration.integrate();
 	    // Integrate with host platform
 	    ni.configureLookAndFeel();
 	    // Set defaults
@@ -67,13 +68,12 @@ public class Gemma {
 	    Application.playLogoSound();
 	    Gemma.application.getGUIManager().showGUI();
 	    // Register platform hooks
-	    // FIXME: Hooks are broken.
-	    // ni.setAboutHandler(Gemma.application.getAboutDialog());
-	    // ni.setOpenFileHandler(Gemma.application.getScenarioManager());
-	    // ni.setPreferencesHandler(PreferencesManager.class);
-	    // ni.setQuitHandler(Gemma.application.getGUIManager());
+	    ni.setAboutHandler(Gemma.application.getAboutDialog());
+	    ni.setOpenFileHandler(Gemma.application.getScenarioManager());
+	    ni.setPreferencesHandler(new PreferencesLauncher());
+	    ni.setQuitHandler(Gemma.application.getGUIManager());
 	} catch (Throwable t) {
-	    Gemma.getErrorLogger().logError(t);
+	    Gemma.logError(t);
 	}
     }
 }

@@ -9,7 +9,8 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.support.names.NamesConstants;
 import com.puttysoftware.gemma.support.names.NamesManager;
@@ -44,7 +45,7 @@ class NamesSaveTask extends Thread {
 	    CommonDialogs.showDialog("Writing the " + sg.toLowerCase()
 		    + " file failed, probably due to illegal characters in the file name.");
 	} catch (final Exception ex) {
-	    Gemma.getErrorLogger().logError(ex);
+	    Gemma.logError(ex);
 	}
     }
 }

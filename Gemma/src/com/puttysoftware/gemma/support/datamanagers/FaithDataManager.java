@@ -6,7 +6,8 @@
  */
 package com.puttysoftware.gemma.support.datamanagers;
 
-import com.puttysoftware.fileutils.ResourceStreamReader;
+import org.retropipes.diane.fileio.utility.ResourceStreamReader;
+
 import com.puttysoftware.gemma.support.creatures.faiths.FaithConstants;
 import com.puttysoftware.gemma.support.scenario.Extension;
 

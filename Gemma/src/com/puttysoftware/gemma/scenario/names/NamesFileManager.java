@@ -8,7 +8,8 @@ package com.puttysoftware.gemma.scenario.names;
 import java.io.File;
 import java.io.IOException;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Application;
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.support.datamanagers.NamesDataManager;
@@ -43,7 +44,7 @@ public class NamesFileManager {
 	    // Final cleanup
 	    app.getNamesEditor().objectChanged();
 	} catch (final Exception ex) {
-	    Gemma.getErrorLogger().logError(ex);
+	    Gemma.logError(ex);
 	}
     }
 
@@ -59,7 +60,7 @@ public class NamesFileManager {
 	    if (!parent.exists()) {
 		boolean success = parent.mkdirs();
 		if (!success) {
-		    Gemma.getErrorLogger().logError(new IOException("Creating names folder failed!"));
+		    Gemma.logError(new IOException("Creating names folder failed!"));
 		}
 	    }
 	    String[] data = NamesManager.convertCacheToArray();

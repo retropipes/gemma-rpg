@@ -13,12 +13,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.help.GraphicalHelpViewer;
+
 import com.puttysoftware.gemma.resourcemanagers.GraphicsConstants;
 import com.puttysoftware.gemma.support.Support;
 import com.puttysoftware.gemma.support.map.generic.MapObjectList;
 import com.puttysoftware.gemma.support.resourcemodifiers.ImageTransformer;
-import com.puttysoftware.help.GraphicalHelpViewer;
-import com.puttysoftware.images.BufferedImageIcon;
 
 class ObjectHelpManager {
     // Fields

@@ -5,18 +5,22 @@
  */
 package com.puttysoftware.gemma.support.map;
 
-import com.puttysoftware.gemma.support.map.generic.MapObject;
-import com.puttysoftware.llds.LowLevelObjectDataStore;
+import org.retropipes.diane.storage.ObjectStorage;
 
-class LowLevelDataStore extends LowLevelObjectDataStore {
+import com.puttysoftware.gemma.support.map.generic.MapObject;
+
+class LowLevelDataStore extends ObjectStorage<MapObject> {
     // Constructor
     LowLevelDataStore(int... shape) {
 	super(shape);
     }
+    LowLevelDataStore(LowLevelDataStore source) {
+	super(source);
+    }
 
     // Methods
     public MapObject getMapCell(int... loc) {
-	return (MapObject) this.getCell(loc);
+	return this.getCell(loc);
     }
 
     public void setMapCell(MapObject obj, int... loc) {

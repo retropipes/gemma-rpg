@@ -7,17 +7,19 @@ package com.puttysoftware.gemma.support.creatures.characterfiles;
 
 import java.io.File;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.fileio.DataIOFactory;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.support.creatures.PartyMember;
 import com.puttysoftware.gemma.support.scenario.Extension;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 public class CharacterLoader {
     private static PartyMember loadCharacter(String name) {
 	String basePath = CharacterRegistration.getBasePath();
 	String loadPath = basePath + File.separator + name + Extension.getCharacterExtensionWithPeriod();
-	try (XDataReader loader = new XDataReader(loadPath, "character")) {
+	try (XDataReader loader = DataIOFactory.createTagReader(loadPath, "character")) {
 	    return PartyMember.read(loader);
 	} catch (Exception e) {
 	    return null;
@@ -48,7 +50,7 @@ public class CharacterLoader {
 	String basePath = CharacterRegistration.getBasePath();
 	String name = character.getName();
 	String characterFile = basePath + File.separator + name + Extension.getCharacterExtensionWithPeriod();
-	try (XDataWriter saver = new XDataWriter(characterFile, "character")) {
+	try (XDataWriter saver = DataIOFactory.createTagWriter(characterFile, "character")) {
 	    character.write(saver);
 	} catch (Exception e) {
 	    // Ignore

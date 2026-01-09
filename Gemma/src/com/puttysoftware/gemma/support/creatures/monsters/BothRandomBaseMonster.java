@@ -5,11 +5,12 @@
  */
 package com.puttysoftware.gemma.support.creatures.monsters;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.support.creatures.faiths.FaithManager;
 import com.puttysoftware.gemma.support.resourcemanagers.ImageManager;
 import com.puttysoftware.gemma.support.resourcemanagers.MonsterNames;
-import com.puttysoftware.images.BufferedImageIcon;
-import com.puttysoftware.randomrange.RandomRange;
 
 abstract class BothRandomBaseMonster extends BaseMonster {
     // Constructors

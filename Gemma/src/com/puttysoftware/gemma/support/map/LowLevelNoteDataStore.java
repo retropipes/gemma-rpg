@@ -5,17 +5,20 @@
  */
 package com.puttysoftware.gemma.support.map;
 
-import com.puttysoftware.llds.LowLevelObjectDataStore;
+import org.retropipes.diane.storage.ObjectStorage;
 
-class LowLevelNoteDataStore extends LowLevelObjectDataStore {
+class LowLevelNoteDataStore extends ObjectStorage<MapNote> {
     // Constructor
     LowLevelNoteDataStore(int... shape) {
 	super(shape);
     }
+    LowLevelNoteDataStore(LowLevelNoteDataStore source) {
+	super(source);
+    }
 
     // Methods
     public MapNote getNote(int... loc) {
-	return (MapNote) this.getCell(loc);
+	return this.getCell(loc);
     }
 
     public void setNote(MapNote obj, int... loc) {

@@ -207,7 +207,7 @@ class PreferencesGUIManager {
 		    break;
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
 
@@ -231,7 +231,7 @@ class PreferencesGUIManager {
 		    }
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
 

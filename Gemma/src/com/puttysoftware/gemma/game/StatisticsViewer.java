@@ -16,7 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.support.Support;
 import com.puttysoftware.gemma.support.creatures.PartyManager;
 import com.puttysoftware.gemma.support.creatures.PartyMember;

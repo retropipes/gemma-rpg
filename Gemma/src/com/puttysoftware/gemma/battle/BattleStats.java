@@ -11,9 +11,10 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+
 import com.puttysoftware.gemma.support.map.objects.BattleCharacter;
 import com.puttysoftware.gemma.support.resourcemanagers.ImageManager;
-import com.puttysoftware.images.BufferedImageIcon;
 
 class BattleStats {
     // Fields

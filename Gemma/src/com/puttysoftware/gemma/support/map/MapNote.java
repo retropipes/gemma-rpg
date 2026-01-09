@@ -7,17 +7,20 @@ package com.puttysoftware.gemma.support.map;
 
 import java.io.IOException;
 
-import com.puttysoftware.llds.CloneableObject;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
 
-public class MapNote extends CloneableObject {
+public class MapNote {
     // Fields
     private String contents;
 
     // Constructor
     public MapNote() {
 	this.contents = "Empty Note";
+    }
+
+    public MapNote(final MapNote source) {
+	this.contents = source.contents;
     }
 
     // Methods
@@ -27,13 +30,6 @@ public class MapNote extends CloneableObject {
 
     public void setContents(String newContents) {
 	this.contents = newContents;
-    }
-
-    @Override
-    public CloneableObject clone() {
-	MapNote copy = new MapNote();
-	copy.contents = this.contents;
-	return copy;
     }
 
     static MapNote readNote(XDataReader reader) throws IOException {

@@ -8,7 +8,7 @@ package com.puttysoftware.gemma.support.datamanagers;
 
 import java.util.ArrayList;
 
-import com.puttysoftware.fileutils.ResourceStreamReader;
+import org.retropipes.diane.fileio.utility.ResourceStreamReader;
 
 public class SoundDataManager {
     public static String[] getSoundData() {

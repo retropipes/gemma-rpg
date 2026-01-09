@@ -1,6 +1,7 @@
 package com.puttysoftware.gemma.game;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.support.map.Map;
 import com.puttysoftware.gemma.support.map.MapNote;

@@ -5,13 +5,16 @@
  */
 package com.puttysoftware.gemma.scenario;
 
+import java.awt.desktop.OpenFilesEvent;
+import java.awt.desktop.OpenFilesHandler;
 import java.io.File;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
-import com.puttysoftware.fileutils.FilenameChecker;
+import org.retropipes.diane.fileio.utility.FilenameChecker;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.Application;
 import com.puttysoftware.gemma.Gemma;
 import com.puttysoftware.gemma.scenario.names.NamesFileManager;
@@ -20,7 +23,7 @@ import com.puttysoftware.gemma.support.map.Map;
 import com.puttysoftware.gemma.support.scenario.Extension;
 import com.puttysoftware.gemma.support.scenario.SaveRegistration;
 
-public class ScenarioManager {
+public class ScenarioManager implements OpenFilesHandler {
     // Fields
     private Map gameMap;
     private boolean isDirty;
@@ -84,9 +87,8 @@ public class ScenarioManager {
 	app.getMenuManager().checkFlags();
     }
 
-    public void loadFromOSHandler(String filename) { // NO_UCD
+    public void loadFromOSHandler(File file) { // NO_UCD
 	String extension;
-	final File file = new File(filename);
 	String newFilename = file.getAbsolutePath();
 	extension = ScenarioManager.getExtension(file);
 	if (extension.equals(Extension.getGameExtension())) {
@@ -258,5 +260,12 @@ public class ScenarioManager {
 	    fno = s;
 	}
 	return fno;
+    }
+
+    @Override
+    public void openFiles(OpenFilesEvent e) {
+	for (final File file : e.getFiles()) {
+	    this.loadFromOSHandler(file);
+	}
     }
 }

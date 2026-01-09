@@ -19,11 +19,11 @@ public class NamesManager {
 	try {
 	    NamesManager.createCache();
 	} catch (Exception e) {
-	    Support.getErrorLogger().logError(e);
+	    Support.logError(e);
 	}
 	String key = section + ":" + type;
 	if (!NamesManager.containsKey(key)) {
-	    Support.getErrorLogger().logError(new IllegalArgumentException("No such key " + key));
+	    Support.logError(new IllegalArgumentException("No such key " + key));
 	}
 	return NamesManager.getValue(key);
     }
@@ -54,7 +54,7 @@ public class NamesManager {
 	try {
 	    NamesManager.createCache();
 	} catch (Exception e) {
-	    Support.getErrorLogger().logError(e);
+	    Support.logError(e);
 	}
 	return NamesManager.CACHE;
     }

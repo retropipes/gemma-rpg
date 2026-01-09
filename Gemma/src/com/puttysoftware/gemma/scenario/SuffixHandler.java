@@ -7,10 +7,11 @@ package com.puttysoftware.gemma.scenario;
 
 import java.io.IOException;
 
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+
 import com.puttysoftware.gemma.game.FileHooks;
 import com.puttysoftware.gemma.support.map.SuffixIO;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 class SuffixHandler implements SuffixIO {
     @Override

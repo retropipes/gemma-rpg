@@ -7,8 +7,9 @@ package com.puttysoftware.gemma.support.resourcemanagers;
 
 import java.util.ArrayList;
 
+import org.retropipes.diane.asset.image.BufferedImageIcon;
+
 import com.puttysoftware.gemma.support.map.generic.TemplateTransform;
-import com.puttysoftware.images.BufferedImageIcon;
 
 class ImageCache {
     // Fields

@@ -7,10 +7,11 @@ package com.puttysoftware.gemma.support.map.generic;
 
 import java.io.IOException;
 
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+
 import com.puttysoftware.gemma.support.map.MapConstants;
 import com.puttysoftware.gemma.support.map.objects.Empty;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 public abstract class GenericCharacter extends MapObject {
     // Constructors

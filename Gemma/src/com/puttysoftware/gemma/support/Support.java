@@ -7,12 +7,13 @@ package com.puttysoftware.gemma.support;
 
 import java.io.File;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
-import com.puttysoftware.errorlogger.ErrorLogger;
-import com.puttysoftware.fileutils.DirectoryUtilities;
+import org.retropipes.diane.Diane;
+import org.retropipes.diane.fileio.utility.DirectoryUtilities;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.update.ProductData;
+
 import com.puttysoftware.gemma.support.creatures.Creature;
 import com.puttysoftware.gemma.support.scenario.Scenario;
-import com.puttysoftware.updater.ProductData;
 
 public class Support {
     // Constants
@@ -24,7 +25,6 @@ public class Support {
 	    + "This error is non-fatal, and has been logged.";
     private static final String ERROR_TITLE = "Gemma Error";
     private static final String NF_ERROR_TITLE = "Gemma Script Error";
-    private static final ErrorLogger elog = new ErrorLogger(Support.PROGRAM_NAME);
     private static final int VERSION_MAJOR = 2;
     private static final int VERSION_MINOR = 0;
     private static final int VERSION_BUGFIX = 0;
@@ -38,7 +38,7 @@ public class Support {
     private static final boolean debugMode = false;
 
     // Methods
-    public static ErrorLogger getErrorLogger() {
+    public static void logError(final Throwable t) {
 	String suffix;
 	if (Support.inDebugMode()) {
 	    suffix = " (DEBUG)";
@@ -47,10 +47,10 @@ public class Support {
 	}
 	// Display error message
 	CommonDialogs.showErrorDialog(Support.ERROR_MESSAGE, Support.ERROR_TITLE + suffix);
-	return Support.elog;
+	Diane.handleError(t);
     }
 
-    public static ErrorLogger getNonFatalLogger() {
+    public static void logNonFatalError(final Throwable t) {
 	String suffix;
 	if (Support.inDebugMode()) {
 	    suffix = " (DEBUG)";
@@ -59,7 +59,7 @@ public class Support {
 	}
 	// Display error message
 	CommonDialogs.showErrorDialog(Support.SCRIPT_ERROR_MESSAGE, Support.NF_ERROR_TITLE + suffix);
-	return Support.elog;
+	Diane.handleWarning(t);
     }
 
     public static boolean inDebugMode() {
@@ -102,6 +102,7 @@ public class Support {
     }
 
     public static void preInit() {
+	Diane.installDefaultErrorHandler(Support.PROGRAM_NAME);
 	// Compute action cap
 	Creature.computeActionCap(Support.BATTLE_MAP_SIZE, Support.BATTLE_MAP_SIZE);
     }

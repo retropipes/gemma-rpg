@@ -19,7 +19,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.support.Support;
 
 public abstract class GenericObjectEditor extends GenericEditor {
@@ -250,7 +251,7 @@ public abstract class GenericObjectEditor extends GenericEditor {
 	    } catch (NumberFormatException nfe) {
 		CommonDialogs.showErrorDialog("An invalid value was entered.", ge.getEditorSource());
 	    } catch (Exception ex) {
-		Support.getErrorLogger().logError(ex);
+		Support.logError(ex);
 	    }
 	}
 
@@ -277,7 +278,7 @@ public abstract class GenericObjectEditor extends GenericEditor {
 	    } catch (NumberFormatException nfe) {
 		CommonDialogs.showErrorDialog("An invalid value was entered.", ge.getEditorSource());
 	    } catch (Exception ex) {
-		Support.getErrorLogger().logError(ex);
+		Support.logError(ex);
 	    }
 	}
     }

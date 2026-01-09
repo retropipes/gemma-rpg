@@ -8,7 +8,10 @@ package com.puttysoftware.gemma.support.creatures;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.fileio.XDataReader;
+import org.retropipes.diane.fileio.XDataWriter;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.support.battle.VictorySpoilsDescription;
 import com.puttysoftware.gemma.support.creatures.characterfiles.CharacterLoader;
 import com.puttysoftware.gemma.support.map.objects.BattleCharacter;
@@ -18,8 +21,6 @@ import com.puttysoftware.gemma.support.scripts.internal.InternalScript;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptActionCode;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntry;
 import com.puttysoftware.gemma.support.scripts.internal.InternalScriptEntryArgument;
-import com.puttysoftware.xio.XDataReader;
-import com.puttysoftware.xio.XDataWriter;
 
 public class Party {
     // Fields

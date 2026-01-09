@@ -17,7 +17,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
+
 import com.puttysoftware.gemma.battle.BattleLogic;
 import com.puttysoftware.gemma.game.InventoryViewer;
 import com.puttysoftware.gemma.game.NoteManager;
@@ -498,7 +499,7 @@ public class MenuManager {
 		}
 		MenuManager.this.checkFlags();
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
     }

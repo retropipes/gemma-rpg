@@ -5,9 +5,10 @@
  */
 package com.puttysoftware.gemma.support.creatures.monsters;
 
+import org.retropipes.diane.random.RandomRange;
+
 import com.puttysoftware.gemma.support.creatures.PartyManager;
 import com.puttysoftware.gemma.support.creatures.StatConstants;
-import com.puttysoftware.randomrange.RandomRange;
 
 abstract class BothRandomScalingBaseMonster extends BothRandomBaseMonster {
     // Constructors

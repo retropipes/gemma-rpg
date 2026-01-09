@@ -5,7 +5,7 @@
  */
 package com.puttysoftware.gemma.game;
 
-import com.puttysoftware.commondialogs.CommonDialogs;
+import org.retropipes.diane.gui.dialog.CommonDialogs;
 
 class ScoreTracker {
     // Fields

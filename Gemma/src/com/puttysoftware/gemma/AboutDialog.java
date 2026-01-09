@@ -10,6 +10,8 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.desktop.AboutEvent;
+import java.awt.desktop.AboutHandler;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,7 +24,7 @@ import javax.swing.WindowConstants;
 import com.puttysoftware.gemma.resourcemanagers.LogoManager;
 import com.puttysoftware.gemma.support.Support;
 
-public class AboutDialog {
+public class AboutDialog implements AboutHandler {
     // Fields
     private JFrame aboutFrame;
 
@@ -94,8 +96,13 @@ public class AboutDialog {
 		    ad.hideAboutDialog();
 		}
 	    } catch (Exception ex) {
-		Gemma.getErrorLogger().logError(ex);
+		Gemma.logError(ex);
 	    }
 	}
+    }
+
+    @Override
+    public void handleAbout(AboutEvent e) {
+	this.aboutFrame.setVisible(true);
     }
 }
